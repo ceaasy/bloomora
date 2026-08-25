@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained()->cascadeOnDelete();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->string('size', 32);
+            $table->integer('quantity');
             $table->json('customization_selected')->nullable();
             $table->decimal('unit_price',10,2);
             $table->decimal('subtotal', 10,2);
