@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email', 128)->unique();
             $table->text('address')->nullable();
             $table->string('password', 255);
+            $table->rememberToken();
             $table->string('profile_photo', 255)->nullable();
             $table->timestamps();
         });
