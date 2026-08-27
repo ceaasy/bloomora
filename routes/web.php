@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\CustomerProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +27,9 @@ Route::prefix('customer')->name('customer.')->group(function () {
         Route::get('/home', function () {
             return 'Halaman Home Pelanggan';
         })->name('home');
+
+        Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
     });
 });
 
@@ -42,5 +47,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', function () {
             return 'Halaman Dashboard Admin';
         })->name('dashboard');
+
+        Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
     });
 });

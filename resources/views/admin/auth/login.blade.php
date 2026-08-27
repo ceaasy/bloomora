@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-@section('title', 'Login Admin - Bloomora')
+@section('title', 'Login - Admin')
 @section('page_title', 'Login Admin')
 
 @section('content')
