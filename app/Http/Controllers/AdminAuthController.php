@@ -17,6 +17,10 @@ class AdminAuthController extends Controller
         $credentials = $request->validate([
             'email'=>['required', 'email'],
             'password'=>['required'],
+        ],[
+            'email.required'=>'Email wajib diisi',
+            'email.email'=>'Format Email tidak valid.',
+            'password.required'=>'Password wajib diisi'
         ]);
 
         if (Auth::guard('web')->attempt($credentials, $request->boolean('remember'))) {

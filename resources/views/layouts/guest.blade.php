@@ -91,6 +91,12 @@
 </head>
 
 <body>
+
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div>
         <p class="guest-page-title">@yield('page_title')</p>
         <div class="guest-outer-frame">

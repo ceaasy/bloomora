@@ -22,12 +22,16 @@ class CustomerAuthController extends Controller
             'email' => ['required', 'email', 'max:128', 'unique:customers,email'],
             'address' => ['nullable', 'string'],
             'password' => ['required', 'confirmed', Password::min(8)]
+        ], [
+            'name.required'=>'Nama Wajib diisi.',
+            'phone.required'=>'Nomor HP wajib diisi.',
+            'email.required'=>'Email wajib diisi',
+            'email.email'=>'Format Email tidak valid.',
+            'email.unique'=>'Email sudah terdaftar, gunakan email lain',
+            'password.required'=>'password wajib diisi',
+            'password.confirmed'=>'Konfirmasi password tidak cocok'
         ]);
  
-        $photoPath = null;
-        if ($request->hasFile('profile_photo')) {
-            $photoPath = $request->file('profile_photo')->store('profile_photos/customers', 'public');
-        }
  
         $customer = Customer::create([
             'name' => $validated['name'],
@@ -52,6 +56,10 @@ class CustomerAuthController extends Controller
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
+        ],[
+            'email.required'=>'Email wajib diisi',
+            'email.email'=>'Format Email tidak valid.',
+            'password.required'=>'Password wajib diisi'
         ]);
  
         if (Auth::guard('customer')->attempt($credentials, $request->boolean('remember'))) {
