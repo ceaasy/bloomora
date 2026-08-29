@@ -1,1 +1,10 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+$primary:   #D6336C;
+$secondary: #B96F84;
+$light:     #FFFAF7;
+$success:   #4A9D6E;
+$danger:    #C0392B;
+$warning:   #E0A458;
+
+@import '../../node_modules/bootstrap/scss/bootstrap';

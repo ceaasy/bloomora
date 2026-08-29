@@ -1,43 +1,62 @@
-<div class="sidebar bg-primary text-white" style="width: 250px; min-height: 100vh;">
-    <div class="p-3 border-bottom border-secondary">
-        <h5 class="mb-0"> Bloomora</h5>
+<div class="d-flex flex-column" style="width: 220px; min-height: 100vh; background-color: #FBE3EC;">
+
+    <div class="p-3 d-flex align-items-center shadow-sm">
+        <img src="{{ asset('img/logo.jpeg') }}" alt="Bloomora" width="32" height="32" class="rounded-circle me-2"
+            style="object-fit: cover;">
+        <span class="fw-bold" style="color: #4A3F3F;">BLOOMORA</span>
+
     </div>
-    <ul class="nav flex-column p-2">
+
+    <ul class="nav flex-column p-2 gap-1">
+
         <li class="nav-item">
-            <a class="nav-link text-white {{ request()->routeIs('admin.dashboard') ? 'active bg-primary rounded' : '' }}"
+            <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
+                style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.dashboard') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
                 href="{{ route('admin.dashboard') }}">
-                <i class="bi bi-speedometer2"></i> Dashboard
+                <i class="bi bi-house"></i>
+                <span class="text-uppercase" style="font-size: 13px;">Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white {{ request()->routeIs('admin.admins.*') ? 'active bg-primary rounded' : '' }}"
+            <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
+                style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.admin.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
                 href="">
-                <i class="bi bi-person-badge"></i> Admin
+                <i class="bi bi-person-circle"></i>
+                <span class="text-uppercase" style="font-size: 13px;">Admin</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white {{ request()->routeIs('admin.customers.*') ? 'active bg-primary rounded' : '' }}"
-                href="">
-                <i class="bi bi-people"></i> Customer
+            <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
+                style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.customers.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
+                href="#">
+                <i class="bi bi-people"></i>
+                <span class="text-uppercase" style="font-size: 13px;">Customer</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white {{ request()->routeIs('admin.products.*') ? 'active bg-primary rounded' : '' }}"
-                href="">
-                <i class="bi bi-box-seam"></i> Product
+            <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
+                style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.products.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
+                href="#">
+                <i class="bi bi-gem"></i>
+                <span class="text-uppercase" style="font-size: 13px;">Product</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white {{ request()->routeIs('admin.orders.*') ? 'active bg-primary rounded' : '' }}"
-                href="">
-                <i class="bi bi-receipt"></i> Order Management
+            <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
+                style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.orders.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
+                href="#">
+                <i class="bi bi-clipboard-data"></i>
+                <span class="text-uppercase" style="font-size: 13px;">Order Management</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white {{ request()->routeIs('admin.reviews.*') ? 'active bg-primary rounded' : '' }}"
-                href="">
-                <i class="bi bi-star"></i> Review
+            <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
+                style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.reviews.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
+                href="#">
+                <i class="bi bi-star-fill text-warning"></i>
+                <span class="text-uppercase" style="font-size: 13px;">Review</span>
             </a>
         </li>
+
     </ul>
 </div>

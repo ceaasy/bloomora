@@ -1,8 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+@php
+    $currentUser = Auth::guard('customer')->user();
+@endphp
+
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #D6336C;">
     <div class="container-fluid">
 
-        <a class="navbar-brand fw-bold" href="{{ route('customer.home') }}">
-            Bloomora
+        <a class="navbar-brand fw-bold text-white d-flex align-items-center" href="{{ route('customer.home') }}">
+            <img src="{{ asset('img/logo.jpeg') }}" alt="Bloomora" width="32" height="32" class="rounded-circle me-2"
+                style="object-fit: cover;">
+            BLOOMORA
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -14,37 +20,35 @@
             <ul class="navbar-nav mx-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('customer.home') ? 'active fw-bold' : '' }}"
+                    <a class="nav-link text-white {{ request()->routeIs('customer.home') ? 'fw-bold border-bottom border-2 border-white' : '' }}"
                         href="{{ route('customer.home') }}">
-                        Home
+                        HOME
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('products.*') ? 'active fw-bold' : '' }}" href="">
-                        Product
+                    <a class="nav-link text-white {{ request()->routeIs('products.*') ? 'fw-bold border-bottom border-2 border-white' : '' }}"
+                        href="">
+                        PRODUCTS
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('about') ? 'active fw-bold' : '' }}" href="">
-                        About
+                    <a class="nav-link text-white {{ request()->routeIs('about') ? 'fw-bold border-bottom border-2 border-white' : '' }}"
+                        href="">
+                        ABOUT
                     </a>
                 </li>
 
             </ul>
 
-            <ul class="navbar-nav ms-auto flex-row align-items-center gap-2">
+            <ul class="navbar-nav ms-auto flex-row align-items-center gap-3">
 
-                <!-- Cart -->
                 <li class="nav-item">
-                    <a class="nav-link position-relative" href="">
+                    <a class="nav-link position-relative text-white" href="">
                         <i class="bi bi-cart3 fs-5"></i>
 
-                        @php
-                            $currentUser = Auth::guard('customer')->user();
-                            $cartCount = $currentUser?->carts()->count() ?? 0;
-                        @endphp
+                        @php $cartCount = $currentUser?->carts()->count() ?? 0; @endphp
 
                         @if ($cartCount > 0)
                             <span
@@ -59,14 +63,14 @@
                 <!-- Profile -->
                 <li class="nav-item dropdown">
 
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                         <img src="{{ $currentUser?->profile_photo
                             ? asset('storage/' . $currentUser->profile_photo)
                             : asset('images/default-avatar.png') }}"
-                            alt="Foto Profil" class="rounded-circle me-2" width="32" height="32"
-                            style="object-fit: cover;">
+                            alt="Foto Profil" class="rounded-circle me-2 border border-white" width="32"
+                            height="32" style="object-fit: cover;">
 
                         {{ $currentUser?->name }}
 
@@ -77,7 +81,7 @@
                         <li>
                             <a class="dropdown-item" href="{{ route('customer.profile.edit') }}">
                                 <i class="bi bi-person-circle"></i>
-                                Edit Profil
+                                Ubah Profil
                             </a>
                         </li>
 

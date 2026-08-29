@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Ubah Profil Admin - Bloomora')
 @section('page-title', 'UBAH PROFILE')
