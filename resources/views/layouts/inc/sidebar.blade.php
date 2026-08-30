@@ -28,7 +28,7 @@
         <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
                 style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.customers.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
-                href="#">
+                href="{{ route('admin.customers.index') }}">
                 <span class="fa fa-users"></span>
                 <span class="text-uppercase" style="font-size: 13px;">Customer</span>
             </a>

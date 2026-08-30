@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminProfileController;
@@ -53,5 +54,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Route for Admin
         Route::resource('/admin', App\Http\Controllers\AdminController::class);
+        //Route for Customer
+         Route::resource('/customers', App\Http\Controllers\CustomerController::class)->only(['index', 'show']);
     });
 });
