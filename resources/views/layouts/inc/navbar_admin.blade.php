@@ -30,7 +30,7 @@
 
                     <li>
                         <a class="dropdown-item" href="{{ route('admin.profile.edit') }}">
-                            <i class="bi bi-person-circle"></i>
+                            <span class="fa fa-user-circle"></span>
                             Edit Profil
                         </a>
                     </li>
@@ -44,7 +44,7 @@
                             @csrf
 
                             <button type="submit" class="dropdown-item text-danger">
-                                <i class="bi bi-box-arrow-right"></i>
+                                <span class="fa fa-sign-out"></span>
                                 Logout
                             </button>
                         </form>

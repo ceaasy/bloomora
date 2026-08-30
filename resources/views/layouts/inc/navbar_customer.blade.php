@@ -42,11 +42,12 @@
 
             </ul>
 
-            <ul class="navbar-nav ms-auto flex-row align-items-center gap-3">
+            <ul class="navbar-nav ms-auto flex-row align-items-center gap-1">
 
                 <li class="nav-item">
-                    <a class="nav-link position-relative text-white" href="">
-                        <i class="bi bi-cart3 fs-5"></i>
+                    <a class="nav-link position-relative text-white d-flex align-items-center" href=""
+                        style="padding: 0.4rem 0.6rem;">
+                        <span class="fa fa-shopping-cart" style="font-size: 1.3rem;"></span>
 
                         @php $cartCount = $currentUser?->carts()->count() ?? 0; @endphp
 
@@ -80,14 +81,14 @@
 
                         <li>
                             <a class="dropdown-item" href="{{ route('customer.profile.edit') }}">
-                                <i class="bi bi-person-circle"></i>
+                                <span class="fa fa-user-circle"></span>
                                 Ubah Profil
                             </a>
                         </li>
 
                         <li>
                             <a class="dropdown-item" href="">
-                                <i class="bi bi-clock-history"></i>
+                                <span class="fa fa-history"></span>
                                 Riwayat Pesanan
                             </a>
                         </li>
@@ -101,7 +102,7 @@
                                 @csrf
 
                                 <button type="submit" class="dropdown-item text-danger">
-                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span class="fa fa-sign-out"></span>
                                     Logout
                                 </button>
                             </form>

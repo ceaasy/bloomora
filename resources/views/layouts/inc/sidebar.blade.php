@@ -13,15 +13,15 @@
             <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
                 style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.dashboard') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
                 href="{{ route('admin.dashboard') }}">
-                <i class="bi bi-house"></i>
-                <span class="text-uppercase" style="font-size: 13px;">Dashboard</span>
+                <span class="fa fa-home"></span>
+                <span class="text-uppercase" style="font-sze: 13px;">Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
                 style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.admin.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
-                href="">
-                <i class="bi bi-person-circle"></i>
+                href="{{ route('admin.admin.index') }}">
+                <span class="fa fa-user"></span>
                 <span class="text-uppercase" style="font-size: 13px;">Admin</span>
             </a>
         </li>
@@ -29,7 +29,7 @@
             <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
                 style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.customers.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
                 href="#">
-                <i class="bi bi-people"></i>
+                <span class="fa fa-users"></span>
                 <span class="text-uppercase" style="font-size: 13px;">Customer</span>
             </a>
         </li>
@@ -37,7 +37,7 @@
             <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
                 style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.products.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
                 href="#">
-                <i class="bi bi-gem"></i>
+                <span class="fa fa-archive"></span>
                 <span class="text-uppercase" style="font-size: 13px;">Product</span>
             </a>
         </li>
@@ -45,7 +45,7 @@
             <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
                 style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.orders.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
                 href="#">
-                <i class="bi bi-clipboard-data"></i>
+                <span class="fa fa-shopping-bag"></span>
                 <span class="text-uppercase" style="font-size: 13px;">Order Management</span>
             </a>
         </li>
@@ -53,7 +53,7 @@
             <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
                 style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.reviews.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
                 href="#">
-                <i class="bi bi-star-fill text-warning"></i>
+                <span class="fa fa-star text-warning"></span>
                 <span class="text-uppercase" style="font-size: 13px;">Review</span>
             </a>
         </li>
