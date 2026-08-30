@@ -50,5 +50,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
         Route::put('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
+
+        // Route for Admin
+        Route::resource('/admin', App\Http\Controllers\AdminController::class);
     });
 });
