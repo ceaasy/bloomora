@@ -1,0 +1,17 @@
+[33ma9dba8a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Membuat halaman Product dan CRUD data Product
+[33m538322f[m Membuat halaman Data Customer
+[33md453403[m[33m ([m[1;31morigin/main[m[33m)[m Membuat halaman Admin dan CRUD untuk data Admin
+[33m2a7be4f[m Mengubah icon navbar dan sidebar
+[33mc0d3d45[m Memperbaiki layouts navbar dan sidebar
+[33m4362554[m Memisahkan Layout Admin dan Customer
+[33mf500f88[m Membuat Navbar, Sidebar, dan Footer
+[33m35c7f1c[m Mengubah tampilan halaman Ubah Profile Admin dan Customer
+[33m75df787[m Membuat halaman ubah profile Customer dan Admin
+[33m3ef092e[m Menambahkan pesan error custom pada validasi
+[33m5a62348[m Membuat sistem dan halaman registrasi Customer serta login Customer dan Admin
+[33m4074a29[m Ubah Password Admin
+[33m6cda7ea[m Menambahkan Seeder untuk Data Admin dan Product
+[33m5f555b4[m Membuat Model dan tambah guard customer
+[33maf7d62c[m Menambahkan 1 field di Order Details
+[33m48f2480[m Membuat migrations
+[33m24fefbd[m Install Laravel

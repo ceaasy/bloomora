@@ -34,7 +34,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white {{ request()->routeIs('about') ? 'fw-bold border-bottom border-2 border-white' : '' }}"
+                    <a class="nav-link text-white {{ request()->routeIs('customer.about') ? 'fw-bold border-bottom border-2 border-white' : '' }}"
                         href="{{ route('customer.about') }}">
                         ABOUT
                     </a>
