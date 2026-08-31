@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create New - Admin Page')
+@section('title', 'Update - Admin Page')
 @section('page-title', 'ADMIN PAGE')
 
 @section('content')
@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <form action="{{ route('admin.admin.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.admin.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

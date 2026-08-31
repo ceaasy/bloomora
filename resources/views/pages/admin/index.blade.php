@@ -14,7 +14,7 @@
 
     <div class="card border-0 shadow-sm">
         <div class="card-body">
-            <table class="table table-bordered table-hover align-middle datatable">
+            <table class="table table-bordered table-hover align-middle">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -65,7 +65,6 @@
 
 @push('scripts')
     <script type="text/javascript">
-        $('.datatable').dataTable();
 
         function handleDestroy(url) {
             Swal.fire({

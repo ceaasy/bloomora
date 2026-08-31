@@ -35,7 +35,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link text-white {{ request()->routeIs('about') ? 'fw-bold border-bottom border-2 border-white' : '' }}"
-                        href="">
+                        href="{{ route('customer.about') }}">
                         ABOUT
                     </a>
                 </li>

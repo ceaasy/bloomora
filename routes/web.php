@@ -56,5 +56,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('/admin', App\Http\Controllers\AdminController::class);
         //Route for Customer
          Route::resource('/customers', App\Http\Controllers\CustomerController::class)->only(['index', 'show']);
+         // Route for Product
+        Route::resource('/products', App\Http\Controllers\ProductController::class);
     });
 });

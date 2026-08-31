@@ -1,4 +1,4 @@
-<div class="d-flex flex-column" style="width: 220px; min-height: 100vh; background-color: #FBE3EC;">
+<div class="d-flex flex-column" style="width: 220px; flex-shrink: 0; min-height: 100vh; background-color: #FBE3EC;">
 
     <div class="p-3 d-flex align-items-center shadow-sm">
         <img src="{{ asset('img/logo.jpeg') }}" alt="Bloomora" width="32" height="32" class="rounded-circle me-2"
@@ -14,7 +14,7 @@
                 style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.dashboard') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
                 href="{{ route('admin.dashboard') }}">
                 <span class="fa fa-home"></span>
-                <span class="text-uppercase" style="font-sze: 13px;">Dashboard</span>
+                <span class="text-uppercase" style="font-size: 13px;">Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
@@ -36,7 +36,7 @@
         <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
                 style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.products.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
-                href="#">
+                href="{{ route('admin.products.index') }}">
                 <span class="fa fa-archive"></span>
                 <span class="text-uppercase" style="font-size: 13px;">Product</span>
             </a>
