@@ -27,8 +27,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white {{ request()->routeIs('products.*') ? 'fw-bold border-bottom border-2 border-white' : '' }}"
-                        href="">
+                    <a class="nav-link text-white {{ request()->routeIs('customer.catalog.index') ? 'fw-bold border-bottom border-2 border-white' : '' }}"
+                        href="{{ route('customer.catalog.index') }}">
                         PRODUCTS
                     </a>
                 </li>
