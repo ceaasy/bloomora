@@ -53,8 +53,8 @@
                         <div class="card-body">
                             <p class="mb-1 small fw-semibold" style="color: #4A3F3F;">{{ $product->name }}</p>
                             <p class="mb-3 small text-muted">Rp{{ number_format($product->price_small, 0, ',', '.') }}</p>
-                            <a href="#" class="btn btn-sm rounded-pill w-100"
-                                style="background-color: #D6336C; color: white;">
+                            <a href="{{ route('customer.catalog.show', $product->id) }}"
+                                class="btn btn-sm rounded-pill w-100" style="background-color: #D6336C; color: white;">
                                 Detail
                             </a>
                         </div>

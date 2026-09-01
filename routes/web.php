@@ -31,6 +31,7 @@ Route::prefix('customer')->name('customer.')->group(function () {
         Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/about', [HomeController::class, 'about'])->name('about');
         Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+        Route::get('/catalog/{id}', [CatalogController::class, 'show'])->name('catalog.show');
 
         Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
         Route::put('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');

@@ -22,4 +22,11 @@ class CatalogController extends Controller
 
         return view('pages.catalog.index', compact('products'));
     }
+
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return view('pages.catalog.show', compact('product'));
+    }
 }
