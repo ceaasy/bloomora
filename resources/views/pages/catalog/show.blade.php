@@ -26,7 +26,7 @@
                     {{ $product->description }}
                 </div>
 
-                <form action="{{ route('customer.cart.store', $product->id) }}" method="POST">
+                <form action="{{ route('customer.carts.store', $product->id) }}" method="POST">
                     @csrf
                     <input type="hidden" name="size" id="selectedSize" value="Small">
 
@@ -74,8 +74,8 @@
                     </div>
 
                     <div class="d-flex gap-2">
-                        <button type="submit" class="btn rounded-pill flex-fill py-2"
-                            style="background-color: #D6336C; color: white;">
+                        <button type="submit" formaction="{{ route('customer.carts.buyNow', $product->id) }}"
+                            class="btn rounded-pill flex-fill py-2" style="background-color: #D6336C; color: white;">
                             Checkout
                         </button>
                         <button type="submit" class="btn rounded-pill flex-fill py-2"
@@ -85,36 +85,36 @@
                     </div>
                 </form>
             </div>
-                <div class="mt-5 pt-4" style="border-top: 2px solid #FBE3EC;">
+            <div class="mt-5 pt-4" style="border-top: 2px solid #FBE3EC;">
 
-                    <span class="badge rounded-pill px-3 py-2 mb-3 d-inline-block"
-                        style="background-color: #FBE3EC; color: #B96F84; font-size: 0.9rem;">
-                        Ulasan
-                    </span>
+                <span class="badge rounded-pill px-3 py-2 mb-3 d-inline-block"
+                    style="background-color: #FBE3EC; color: #B96F84; font-size: 0.9rem;">
+                    Ulasan
+                </span>
 
-                    <div class="p-3 rounded-3" style="background-color: white; border: 1px solid #FBE3EC;">
-                        <p class="mb-0 text-muted">Belum ada ulasan untuk produk ini.</p>
-                    </div>
+                <div class="p-3 rounded-3" style="background-color: white; border: 1px solid #FBE3EC;">
+                    <p class="mb-0 text-muted">Belum ada ulasan untuk produk ini.</p>
                 </div>
+            </div>
 
-                <script>
-                    let jumlah = 1;
+            <script>
+                let jumlah = 1;
 
-                    function ubahJumlah(delta) {
-                        jumlah = Math.max(1, jumlah + delta);
-                        document.getElementById('jumlahProduk').value = jumlah;
-                    }
+                function ubahJumlah(delta) {
+                    jumlah = Math.max(1, jumlah + delta);
+                    document.getElementById('jumlahProduk').value = jumlah;
+                }
 
-                    document.querySelectorAll('.size-option').forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            document.querySelectorAll('.size-option').forEach(b => {
-                                b.style.backgroundColor = 'transparent';
-                                b.style.color = '#4A3F3F';
-                            });
-                            this.style.backgroundColor = '#D6336C';
-                            this.style.color = 'white';
-                            document.getElementById('selectedSize').value = this.dataset.size;
+                document.querySelectorAll('.size-option').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.size-option').forEach(b => {
+                            b.style.backgroundColor = 'transparent';
+                            b.style.color = '#4A3F3F';
                         });
+                        this.style.backgroundColor = '#D6336C';
+                        this.style.color = 'white';
+                        document.getElementById('selectedSize').value = this.dataset.size;
                     });
-                </script>
-            @endsection
+                });
+            </script>
+        @endsection

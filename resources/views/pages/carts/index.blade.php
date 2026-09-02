@@ -10,8 +10,7 @@
         @if ($carts->isEmpty())
             <p class="text-muted">Keranjang kamu masih kosong.</p>
         @else
-            <form action="" method="POST" id="checkoutForm">
-                @csrf
+            <form action="{{ route('customer.checkout.index') }}" method="GET" id="checkoutForm">
             </form>
 
             <div class="card border-0 shadow-sm">

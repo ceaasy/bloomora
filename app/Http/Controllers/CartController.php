@@ -23,6 +23,20 @@ class CartController extends Controller
      */
     public function store(Request $request, $productId)
     {
+        $this->simpanKeCart($request, $productId);
+
+        return redirect()->route('customer.carts.index')->with('success', 'Produk ditambahkan ke keranjang');
+    }
+
+    public function buyNow(Request $request, $productId)
+    {
+        $cart = $this->simpanKeCart($request, $productId);
+
+        return redirect()->route('customer.checkout.index', ['selected_carts' => [$cart->id]]);
+    }
+
+     private function simpanKeCart(Request $request, $productId)
+    {
         $product = Product::findOrFail($productId);
 
         $request->validate([
@@ -45,17 +59,14 @@ class CartController extends Controller
             }
         }
 
-        Cart::create([
+        return Cart::create([
             'customer_id' => auth('customer')->id(),
             'product_id' => $product->id,
             'size' => $request->size,
             'quantity' => $request->quantity,
             'customization_selected' => $selectedCustomizations,
         ]);
-
-        return redirect()->route('customer.carts.index')->with('success', 'Produk ditambahkan ke keranjang');
     }
-
     /**
      * Update the specified resource in storage.
      */

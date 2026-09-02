@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +40,13 @@ Route::prefix('customer')->name('customer.')->group(function () {
         Route::post('/carts/{product}', [CartController::class, 'store'])->name('carts.store');
         Route::get('/carts', [CartController::class, 'index'])->name('carts.index');
         Route::patch('/carts/{cart}', [CartController::class, 'update'])->name('carts.update');
+        Route::post('/carts/{product}/buy-now', [CartController::class, 'buyNow'])->name('carts.buyNow');
         Route::delete('/carts/{cart}', [CartController::class, 'destroy'])->name('carts.destroy');
+
+        Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+        Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+        Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
+        
 
         Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
         Route::put('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
