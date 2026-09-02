@@ -45,8 +45,8 @@
             <ul class="navbar-nav ms-auto flex-row align-items-center gap-1">
 
                 <li class="nav-item">
-                    <a class="nav-link position-relative text-white d-flex align-items-center" href=""
-                        style="padding: 0.4rem 0.6rem;">
+                    <a class="nav-link position-relative text-white d-flex align-items-center"
+                        href="{{ route('customer.carts.index') }}" style="padding: 0.4rem 0.6rem;">
                         <span class="fa fa-shopping-cart" style="font-size: 1.3rem;"></span>
 
                         @php $cartCount = $currentUser?->carts()->count() ?? 0; @endphp
