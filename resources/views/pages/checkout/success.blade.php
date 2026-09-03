@@ -19,7 +19,7 @@
                 <p class="fw-bold mb-0" style="color: #D6336C;">#BLM-{{ str_pad($order->id, 4, '0', STR_PAD_LEFT) }}</p>
             </div>
 
-            <a href="#" class="btn w-100 rounded-pill py-2 mb-2" style="background-color: #D6336C; color: white;">
+            <a href="{{ route('customer.orders.show') }}" class="btn w-100 rounded-pill py-2 mb-2" style="background-color: #D6336C; color: white;">
                 Lihat Detail Pesanan
             </a>
             <a href="{{ route('customer.catalog.index') }}" class="btn w-100 rounded-pill py-2"

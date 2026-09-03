@@ -9,6 +9,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,8 +38,8 @@ Route::prefix('customer')->name('customer.')->group(function () {
         Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
         Route::get('/catalog/{id}', [CatalogController::class, 'show'])->name('catalog.show');
         
-        Route::post('/carts/{product}', [CartController::class, 'store'])->name('carts.store');
         Route::get('/carts', [CartController::class, 'index'])->name('carts.index');
+        Route::post('/carts/{product}', [CartController::class, 'store'])->name('carts.store');
         Route::patch('/carts/{cart}', [CartController::class, 'update'])->name('carts.update');
         Route::post('/carts/{product}/buy-now', [CartController::class, 'buyNow'])->name('carts.buyNow');
         Route::delete('/carts/{cart}', [CartController::class, 'destroy'])->name('carts.destroy');
@@ -46,7 +47,10 @@ Route::prefix('customer')->name('customer.')->group(function () {
         Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
         Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
         Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
-        
+
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
 
         Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
         Route::put('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');

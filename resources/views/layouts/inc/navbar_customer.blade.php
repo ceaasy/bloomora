@@ -87,7 +87,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item" href="">
+                            <a class="dropdown-item" href="{{ route('customer.orders.index') }}">
                                 <span class="fa fa-history"></span>
                                 Riwayat Pesanan
                             </a>
