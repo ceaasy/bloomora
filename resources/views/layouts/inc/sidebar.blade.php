@@ -43,8 +43,8 @@
         </li>
         <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 px-3 py-2"
-                style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.orders.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
-                href="#">
+                style="color: #4A3F3F; border-radius: 8px; {{ request()->routeIs('admin.ordermanagements.*') ? 'background-color: #FFFFFF; font-weight: 600;' : '' }}"
+                href="{{ route('admin.ordermanagements.index') }}">
                 <span class="fa fa-shopping-bag"></span>
                 <span class="text-uppercase" style="font-size: 13px;">Order Management</span>
             </a>
