@@ -82,6 +82,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
          // Route for Product
         Route::resource('/products', App\Http\Controllers\ProductController::class);
         //Route for OrderManagement
-        Route::resource('/ordermanagements', App\Http\Controllers\OrderManagementController::class) ->parameters(['ordermanagements' => 'order'])->only(['index','show','edit','update']);
+        Route::resource('/ordermanagements', App\Http\Controllers\OrderManagementController::class) 
+        ->parameters(['ordermanagements' => 'order'])->only(['index','show','edit','update']);
+        //Route for OrderManagement
+        Route::resource('/paymentmanagements', App\Http\Controllers\PaymentManagementController::class) 
+        ->parameters(['paymentmanagements' => 'payment'])->only(['index','show','edit','update']);
     });
 });

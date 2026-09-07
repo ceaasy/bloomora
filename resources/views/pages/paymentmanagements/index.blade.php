@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
-@section('title', 'Order Page - Admin')
+@section('title', 'Payment Page - Admin')
 @section('page-title', 'Order Management')
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0" style="color: #4A3F3F;">Daftar Pesanan</h1>
+        <h1 class="h3 mb-0" style="color: #4A3F3F;">Daftar Pembayaran</h1>
     </div>
 
     <ul class="nav nav-pills mb-4">
         <li class="nav-item">
-            <a class="nav-link active" style="background-color: #D6336C;"
-                href="{{ route('admin.ordermanagements.index') }}">Order</a>
+            <a class="nav-link" href="{{ route('admin.ordermanagements.index') }}">Order</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.paymentmanagements.index') }}">Payment</a>
+            <a class="nav-link active" style="background-color: #D6336C;"
+                href="{{ route('admin.paymentmanagements.index') }}">Payment</a>
         </li>
         <li class="nav-item">
             <a class="nav-link disabled" href="#">Shipment</a>
@@ -29,27 +29,29 @@
                         <th>No</th>
                         <th>No Pesanan</th>
                         <th>Customer</th>
-                        <th>Tanggal Pesan</th>
-                        <th>Total Harga</th>
+                        <th>Payment Method</th>
+                        <th>Amount</th>
+                        <th>Payment Date</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($orders as $order)
+                    @foreach ($payments as $payment)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>#BLM-{{ str_pad($order->id, 4, '0', STR_PAD_LEFT) }}</td>
-                            <td>{{ $order->customer->name }}</td>
-                            <td>{{ $order->created_at->format('d-m-Y') }}</td>
-                            <td>Rp{{ number_format($order->total_price, 0, ',', '.') }}</td>
-                            <td>{{ $order->status }}</td>
+                            <td>#BLM-{{ str_pad($payment->order->id, 4, '0', STR_PAD_LEFT) }}</td>
+                            <td>{{ $payment->order->customer->name }}</td>
+                            <td>{{ $payment->payment_method }}</td>
+                            <td>Rp{{ number_format($payment->amount, 0, ',', '.') }}</td>
+                            <td>{{ $payment->payment_date ? $payment->payment_date->format('d-m-Y') : '-' }}</td>
+                            <td>{{ $payment->status }}</td>
                             <td>
-                                <a href="{{ route('admin.ordermanagements.show', $order->id) }}"
+                                <a href="{{ route('admin.paymentmanagements.show', $payment->id) }}"
                                     class="btn btn-link text-dark p-0 mx-2">
                                     <span class="fa fa-eye"></span>
                                 </a>
-                                <a href="{{ route('admin.ordermanagements.edit', $order->id) }}"
+                                <a href="{{ route('admin.paymentmanagements.edit', $payment->id) }}"
                                     class="btn btn-link p-0 mx-2" style="color: #0d6efd;">
                                     <span class="fa fa-edit"></span>
                                 </a>

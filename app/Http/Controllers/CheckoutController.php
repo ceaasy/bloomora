@@ -94,7 +94,7 @@ class CheckoutController extends Controller
             $subtotal += ($hargaSatuan + $hargaKustomisasi) * $cart->quantity;
         }
 
-        $shippingCost = $request->pickup_method === 'Dikirim' ? 15000 : 0;
+        $shippingCost = $request->pickup_method === 'Dikirim' ? 10000 : 0;
         $total = $subtotal + $shippingCost;
 
         $order = DB::transaction(function () use ($request, $carts, $subtotal, $shippingCost, $total, $fotoPath, $selectedIds) {
@@ -146,7 +146,7 @@ class CheckoutController extends Controller
             Shipment::create([
                 'order_id' => $order->id,
                 'tracking_number' => null,
-                'status' => $request->pickup_method === 'Dikirim' ? 'Belum Dikirim' : 'Siap Diambil',
+                'status' => 'Menunggu',
             ]);
 
             Cart::whereIn('id', $selectedIds)->delete();
