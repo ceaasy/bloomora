@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class PaymentManagementController extends Controller
 {
-     public function index()
+    public function index()
     {
         $payments=Payment::with('order.customer')->latest()->get();
         return view('pages.paymentmanagements.index', compact('payments'));
     }
 
-   public function show(Payment $payment)
+    public function show(Payment $payment)
     {
         $payment->load( 'order');
 
@@ -27,12 +27,12 @@ class PaymentManagementController extends Controller
     public function update(Request $request, Payment $payment)
     {
         $request->validate([
-            'status' => 'required|in:Belum Dibayar,Sudah Dibayar',
             'payment_date' => 'nullable|date',
+            'status' => 'required|in:Belum Dibayar,Sudah Dibayar',
         ], [
+            'payment_date.date'=>'Format tanggal tidak valid',
             'status.required' => 'Status wajib dipilih.',
             'status.in' => 'Status yang dipilih tidak valid.',
-            'payment_date.date'=>'Format tanggal tidak valid'
         ]);
 
         $payment->update([
