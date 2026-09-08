@@ -23,9 +23,11 @@ class CatalogController extends Controller
         return view('pages.catalog.index', compact('products'));
     }
 
-    public function show($id)
+   public function show($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with(['reviews' => function ($query) {
+            $query->where('is_visible', true)->with('customer')->latest();
+        }])->findOrFail($id);
 
         return view('pages.catalog.show', compact('product'));
     }

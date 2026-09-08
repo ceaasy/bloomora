@@ -10,6 +10,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -50,6 +51,9 @@ Route::prefix('customer')->name('customer.')->group(function () {
 
         Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
         Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
+        Route::get('/reviews/create/{order}/{product}', [ReviewController::class, 'create'])->name('reviews.create');
+        Route::post('/reviews/{order}/{product}', [ReviewController::class, 'store'])->name('reviews.store');
 
 
         Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');

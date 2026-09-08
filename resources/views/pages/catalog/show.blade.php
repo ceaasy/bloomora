@@ -9,7 +9,6 @@
             <span class="fa fa-arrow-left"></span> Kembali ke Katalog
         </a>
 
-
         <div class="row g-4">
             <div class="col-md-5">
                 <img src="{{ asset('storage/' . $product->photo) }}" alt="{{ $product->name }}"
@@ -85,36 +84,62 @@
                     </div>
                 </form>
             </div>
-            <div class="mt-5 pt-4" style="border-top: 2px solid #FBE3EC;">
+        </div>
 
-                <span class="badge rounded-pill px-3 py-2 mb-3 d-inline-block"
-                    style="background-color: #FBE3EC; color: #B96F84; font-size: 0.9rem;">
-                    Ulasan
-                </span>
+        <div class="mt-5 pt-4" style="border-top: 2px solid #FBE3EC;">
 
+            <span class="badge rounded-pill px-3 py-2 mb-3 d-inline-block"
+                style="background-color: #FBE3EC; color: #B96F84; font-size: 0.9rem;">
+                Ulasan
+            </span>
+
+            @forelse ($product->reviews as $review)
+                <div class="p-3 mb-2 rounded-3" style="background-color: white; border: 1px solid #FBE3EC;">
+                    <p class="mb-1">
+                        @for ($i = 1; $i <= 5; $i++)
+                            <span class="fa fa-star"
+                                style="color: {{ $i <= $review->rating ? '#f0ad4e' : '#ccc' }}; font-size: 0.85rem;"></span>
+                        @endfor
+                        <strong class="ms-1" style="color: #4A3F3F;">{{ $review->customer->name }}</strong>
+                    </p>
+
+                    @if ($review->comment)
+                        <p class="mb-2 text-muted">{{ $review->comment }}</p>
+                    @endif
+
+                    @if ($review->photo)
+                        <img src="{{ asset('storage/' . $review->photo) }}" alt="Foto ulasan" class="rounded-3"
+                            style="max-width: 120px; max-height: 120px; object-fit: cover;">
+                    @endif
+                </div>
+            @empty
                 <div class="p-3 rounded-3" style="background-color: white; border: 1px solid #FBE3EC;">
                     <p class="mb-0 text-muted">Belum ada ulasan untuk produk ini.</p>
                 </div>
-            </div>
+            @endforelse
 
-            <script>
-                let jumlah = 1;
+        </div>
 
-                function ubahJumlah(delta) {
-                    jumlah = Math.max(1, jumlah + delta);
-                    document.getElementById('jumlahProduk').value = jumlah;
-                }
+    </div>
 
-                document.querySelectorAll('.size-option').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        document.querySelectorAll('.size-option').forEach(b => {
-                            b.style.backgroundColor = 'transparent';
-                            b.style.color = '#4A3F3F';
-                        });
-                        this.style.backgroundColor = '#D6336C';
-                        this.style.color = 'white';
-                        document.getElementById('selectedSize').value = this.dataset.size;
-                    });
+    <script>
+        let jumlah = 1;
+
+        function ubahJumlah(delta) {
+            jumlah = Math.max(1, jumlah + delta);
+            document.getElementById('jumlahProduk').value = jumlah;
+        }
+
+        document.querySelectorAll('.size-option').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.size-option').forEach(b => {
+                    b.style.backgroundColor = 'transparent';
+                    b.style.color = '#4A3F3F';
                 });
-            </script>
-        @endsection
+                this.style.backgroundColor = '#D6336C';
+                this.style.color = 'white';
+                document.getElementById('selectedSize').value = this.dataset.size;
+            });
+        });
+    </script>
+@endsection

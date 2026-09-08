@@ -17,7 +17,7 @@
                 href="{{ route('admin.paymentmanagements.index') }}">Payment</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled" href="#">Shipment</a>
+            <a class="nav-link" href="{{ route('admin.shipmentmanagements.index') }}">Shipment</a>
         </li>
     </ul>
 

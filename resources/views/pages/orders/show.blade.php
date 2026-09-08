@@ -7,8 +7,15 @@
         <h1 class="h3 mb-0" style="color: #450404;">Detail Pesanan #BLM-{{ str_pad($order->id, 4, '0', STR_PAD_LEFT) }}</h1>
     </div>
     @php
-        $tahapan = ['Diproses', 'Disiapkan', 'Dikirim/Diambil', 'Dibayar', 'Selesai'];
-        $tahapAktif = array_search($order->status, $tahapan);
+        $tahapan = ['Diproses', 'Disiapkan', 'Siap Diambil/Dikirim', 'Dibayar', 'Selesai'];
+
+        if ($order->status === 'Selesai') {
+            $tahapAktif = 4;
+        } elseif ($order->payment->status === 'Sudah Dibayar') {
+            $tahapAktif = 3;
+        } else {
+            $tahapAktif = array_search($order->status, ['Diproses', 'Disiapkan', 'Siap Diambil/Dikirim']);
+        }
     @endphp
 
     <div class="d-flex justify-content-between mb-4 position-relative">
@@ -82,6 +89,7 @@
                             <th>Qty</th>
                             <th>Kustomisasi</th>
                             <th>Subtotal</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,6 +104,29 @@
                                     @endforeach
                                 </td>
                                 <td>Rp{{ number_format($detail->subtotal, 0, ',', '.') }}</td>
+                                <td>
+                                    @if ($order->status === 'Selesai')
+                                        @php
+                                            $alreadyReviewed = \App\Models\Review::where('order_id', $order->id)
+                                                ->where('product_id', $detail->product->id)
+                                                ->where('customer_id', auth('customer')->id())
+                                                ->exists();
+                                        @endphp
+
+                                        @if ($alreadyReviewed)
+                                            <button type="button" class="btn btn-sm rounded-pill"
+                                                style="background-color: #adb5bd; color: white;" disabled>
+                                                Sudah Diulas
+                                            </button>
+                                        @else
+                                            <a href="{{ route('customer.reviews.create', [$order->id, $detail->product->id]) }}"
+                                                class="btn btn-sm rounded-pill"
+                                                style="background-color: #D6336C; color: white;">
+                                                Beri Ulasan
+                                            </a>
+                                        @endif
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -139,16 +170,6 @@
         </div>
     </div>
     <div class="d-flex gap-2">
-        @if ($order->status === 'Selesai')
-            <a href="#" class="btn rounded-pill px-4" style="background-color: #D6336C; color: white;">
-                Beri Ulasan
-            </a>
-        @else
-            <button type="button" class="btn rounded-pill px-4" style="background-color: #FBE3EC; color: #B96F84;"
-                disabled>
-                Beri Ulasan
-            </button>
-        @endif
         <a href="{{ route('customer.orders.index') }}" class="btn rounded-pill px-4"
             style="border: 1px solid #B96F84; color: #B96F84;">
             Kembali
