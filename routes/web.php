@@ -11,6 +11,7 @@ use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ReviewManagementController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -94,5 +95,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         //Route for Order(Shipment)Management
         Route::resource('/shipmentmanagements', App\Http\Controllers\ShipmentManagementController::class) 
         ->parameters(['shipmentmanagements' => 'shipment'])->only(['index','show','edit','update']);
+        //Route for Review
+        Route::get('/reviewmanagements', [ReviewManagementController::class, 'index'])->name('reviewmanagements.index');
+        Route::get('/reviewmanagements/{review}', [ReviewManagementController::class, 'show'])->name('reviewmanagements.show');
+        Route::patch('/reviewmanagements/{review}/toggle', [ReviewManagementController::class, 'toggle'])->name('reviewmanagements.toggle');
     });
 });
