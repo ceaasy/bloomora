@@ -1,11 +1,29 @@
 @extends('layouts.guest')
 
 @section('title', 'Login - Bloomora')
+@section('page_title', 'LOGIN')
 
 @section('content')
-    <div class="guest-card card-pink mx-auto">
 
-        <form method="POST" action="{{ route('customer.login') }}">
+    <div class="text-center mb-4">
+        <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
+            style="width: 64px; height: 64px; background-color: #FBE3EC;">
+            <span class="fa fa-user-circle-o" style="color: #D6336C; font-size: 1.5rem;"></span>
+        </div>
+        <h4 class="fw-bold mb-1" style="color: #D6336C; font-family: 'Playfair Display', serif;">
+            Selamat Datang Kembali
+        </h4>
+        <p class="text-muted mb-0" style="font-size: 0.9rem;">
+            Masuk untuk melanjutkan belanja produk favoritmu
+        </p>
+    </div>
+
+    <div class="guest-card card-pink mx-auto position-relative overflow-hidden">
+
+        <div class="position-absolute rounded-circle"
+            style="width: 120px; height: 120px; background: #ffffff55; top: -50px; right: -40px;"></div>
+
+        <form method="POST" action="{{ route('customer.login') }}" class="position-relative">
             @csrf
 
             <div class="mb-3">
@@ -34,7 +52,7 @@
             <button type="submit" class="btn btn-bloomora-pink text-white w-100">Login</button>
         </form>
 
-        <p class="guest-footer-link text-center mt-3 mb-0">
+        <p class="guest-footer-link text-center mt-3 mb-0 position-relative">
             Belum Punya Akun? <a href="{{ route('customer.register') }}" class="link-pink text-decoration-none">Daftar
                 Sini</a>
         </p>

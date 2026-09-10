@@ -8,6 +8,8 @@
 
     <title>@yield('title', config('app.name', 'Bloomora'))</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     @stack('styles')
@@ -25,12 +27,19 @@
 
         .guest-page-title {
             text-align: center;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            font-weight: 700;
-            color: #4A3F3F;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+        }
+
+        .guest-page-title span {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            color: #B4275A;
             text-transform: uppercase;
+            background-color: #FBE3EC;
+            padding: 6px 18px;
+            border-radius: 50px;
         }
 
         .guest-outer-frame {
@@ -87,6 +96,22 @@
             color: #9C2B3A;
             font-weight: 600;
         }
+
+        .btn-bloomora-pink,
+        .btn.text-white[style*="D6336C"] {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-bloomora-pink:hover,
+        .btn.text-white[style*="D6336C"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
+        }
+
+        .btn-bloomora-pink:active,
+        .btn.text-white[style*="D6336C"]:active {
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 
@@ -98,7 +123,7 @@
         </div>
     @endif
     <div>
-        <p class="guest-page-title">@yield('page_title')</p>
+        <p class="guest-page-title"><span>@yield('page_title')</span></p>
         <div class="guest-outer-frame">
             @yield('content')
         </div>
