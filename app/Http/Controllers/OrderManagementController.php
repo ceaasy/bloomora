@@ -36,6 +36,11 @@ class OrderManagementController extends Controller
 
         $order->update(['status' => $request->status]);
 
+        if ($request->status === 'Selesai') {
+            $order->payment->update(['status' => 'Sudah Dibayar', 'payment_date' => $order->payment->payment_date ?? now()]);
+            $order->shipment->update(['status' => 'Selesai']);
+        }
+
         return redirect()->route('admin.ordermanagements.index')
             ->with('success', 'Status pesanan berhasil diperbarui');
     }

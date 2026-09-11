@@ -13,7 +13,7 @@ class ShipmentManagementController extends Controller
         return view('pages.shipmentmanagements.index', compact('shipments'));
     }
 
-   public function show(Shipment $shipment)
+    public function show(Shipment $shipment)
     {
         $shipment->load( 'order');
 
@@ -24,21 +24,25 @@ class ShipmentManagementController extends Controller
         return view('pages.shipmentmanagements.edit', compact('shipment'));
     }
 
-    public function update(Request $request, Shipment $shipment)
+   public function update(Request $request, Shipment $shipment)
     {
         $request->validate([
             'tracking_number' => 'nullable|string',
             'status' => 'required|in:Menunggu,Dikirim,Siap Diambil,Selesai',
         ], [
-            'tracking_number.string' => 'Nomor resi harus berupa teks.',
             'status.required' => 'Status wajib dipilih.',
             'status.in' => 'Status yang dipilih tidak valid.',
         ]);
 
         $shipment->update([
-            'tracking_number'=> $request->tracking_number,
-            'status' => $request->status
+            'tracking_number' => $request->tracking_number,
+            'status' => $request->status,
         ]);
+
+        if ($request->status === 'Selesai') {
+            $shipment->order->update(['status' => 'Selesai']);
+            $shipment->order->payment->update(['status' => 'Sudah Dibayar', 'payment_date' => $shipment->order->payment->payment_date ?? now()]);
+        }
 
         return redirect()->route('admin.shipmentmanagements.index')
             ->with('success', 'Status pesanan(Pengiriman) berhasil diperbarui');
