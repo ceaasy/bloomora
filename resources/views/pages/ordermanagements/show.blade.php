@@ -29,6 +29,34 @@
     </div>
 
     <div class="p-4 rounded-4 mb-4" style="background-color: #FFFAF7; border: 1px solid #FBE3EC;">
+        <h6 class="fw-bold mb-3" style="color: #D6336C;">Status Pembayaran & Pengiriman</h6>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <p class="small text-muted mb-1">Status Pembayaran</p>
+                <div class="p-2 rounded-3 d-flex justify-content-between align-items-center"
+                    style="background-color: #FBE3EC;">
+                    <span>{{ $order->payment->status }}</span>
+                    <a href="{{ route('admin.paymentmanagements.show', $order->payment->id) }}" class="small"
+                        style="color: #D6336C;">
+                        Detail &raquo;
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p class="small text-muted mb-1">Status Pengiriman</p>
+                <div class="p-2 rounded-3 d-flex justify-content-between align-items-center"
+                    style="background-color: #FBE3EC;">
+                    <span>{{ $order->shipment->status }}</span>
+                    <a href="{{ route('admin.shipmentmanagements.show', $order->shipment->id) }}" class="small"
+                        style="color: #D6336C;">
+                        Detail &raquo;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 rounded-4 mb-4" style="background-color: #FFFAF7; border: 1px solid #FBE3EC;">
         <h6 class="fw-bold mb-3" style="color: #D6336C;">Info Penerima & Pengiriman</h6>
         <div class="row g-3">
             <div class="col-md-6">
@@ -128,15 +156,22 @@
         </div>
     </div>
 
-    <div class="d-flex gap-2">
+    <div class="d-flex flex-wrap gap-2">
         <a href="{{ route('admin.ordermanagements.edit', $order->id) }}" class="btn"
             style="background-color: #4361ee; color: white;">
-            Update Status
+            <span class="fa fa-box"></span> Update Status Pesanan
+        </a>
+        <a href="{{ route('admin.paymentmanagements.edit', $order->payment->id) }}" class="btn"
+            style="background-color: #D6336C; color: white;">
+            <span class="fa fa-money"></span> Update Status Pembayaran
+        </a>
+        <a href="{{ route('admin.shipmentmanagements.edit', $order->shipment->id) }}" class="btn"
+            style="background-color: #B96F84; color: white;">
+            <span class="fa fa-truck"></span> Update Status Pengiriman
         </a>
         <a href="{{ route('admin.ordermanagements.index') }}" class="btn text-white"
             style="background-color: #6c757d; border-color: #6c757d;">
-            <span class="fa fa-arrow-left"></span>
-            Back
+            <span class="fa fa-arrow-left"></span> Back
         </a>
     </div>
 

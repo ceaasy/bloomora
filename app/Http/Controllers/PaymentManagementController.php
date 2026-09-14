@@ -21,6 +21,8 @@ class PaymentManagementController extends Controller
     }
     public function edit(Payment $payment)
     {
+        $payment->load('order.orderDetails.product', 'order.customer', 'order.payment');
+        
         return view('pages.paymentmanagements.edit', compact('payment'));
     }
 

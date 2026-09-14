@@ -8,6 +8,7 @@
         <h1 class="h3 mb-0 text-gray-800">Update - Order page</h1>
     </div>
 
+    @include('pages.partials.detail_pesanan', ['order' => $order])
     <div class="row">
         <div class="col-md-6">
             <div class="card">

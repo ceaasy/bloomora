@@ -8,6 +8,7 @@
         <h1 class="h3 mb-0 text-gray-800">Update - Shipment page</h1>
     </div>
 
+    @include('pages.partials.detail_pesanan', ['order' => $shipment->order])
     <div class="row">
         <div class="col-md-6">
             <div class="card">
@@ -42,7 +43,8 @@
 
                             <div class="col-12">
                                 <label for="status" class="form-label">Status</label>
-                                <select name="status" id="status" class="form-select">
+                                <select name="status" id="status" class="form-select"
+                                    @if (!in_array($shipment->order->status, ['Siap Diambil/Dikirim', 'Selesai'])) disabled @endif>
                                     <option value="Menunggu" {{ $shipment->status === 'Menunggu' ? 'selected' : '' }}>
                                         Menunggu</option>
 
@@ -58,7 +60,24 @@
                                     <option value="Selesai" {{ $shipment->status === 'Selesai' ? 'selected' : '' }}>Selesai
                                     </option>
                                 </select>
+
+                                @if (!in_array($shipment->order->status, ['Siap Diambil/Dikirim', 'Selesai']))
+                                    <small class="text-danger">Menunggu pesanan mencapai status "Siap
+                                        Diambil/Dikirim".</small>
+                                @endif
                             </div>
+
+                            @if ($shipment->order->pickup_method === 'Dikirim')
+                                <div class="col-12">
+                                    <label for="tracking_number" class="form-label">Tracking Number</label>
+                                    <input type="text" name="tracking_number" id="tracking_number"
+                                        value="{{ old('tracking_number', $shipment->tracking_number) }}"
+                                        class="form-control @error('tracking_number') is-invalid @enderror">
+                                    @error('tracking_number')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            @endif
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">

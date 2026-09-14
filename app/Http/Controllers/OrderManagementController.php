@@ -22,6 +22,8 @@ class OrderManagementController extends Controller
     }
     public function edit(Order $order)
     {
+        $order->load('orderDetails.product', 'customer', 'payment');
+
         return view('pages.ordermanagements.edit', compact('order'));
     }
 

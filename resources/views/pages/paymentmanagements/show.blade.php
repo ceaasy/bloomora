@@ -41,16 +41,22 @@
         </div>
     </div>
 
-    <div class="d-flex gap-2">
-        <a href="{{ route('admin.paymentmanagements.edit', $payment->id) }}" class="btn"
+    <div class="d-flex flex-wrap gap-2">
+        <a href="{{ route('admin.ordermanagements.edit', $payment->order->id) }}" class="btn"
             style="background-color: #4361ee; color: white;">
-            Update Status
+            <span class="fa fa-box"></span> Update Status Pesanan
         </a>
-        <a href="{{ route('admin.paymentmanagements.index') }}" class="btn text-white"
+        <a href="{{ route('admin.paymentmanagements.edit', $payment->id) }}" class="btn"
+            style="background-color: #D6336C; color: white;">
+            <span class="fa fa-money"></span> Update Status Pembayaran
+        </a>
+        <a href="{{ route('admin.shipmentmanagements.edit', $payment->order->shipment->id) }}" class="btn"
+            style="background-color: #B96F84; color: white;">
+            <span class="fa fa-truck"></span> Update Status Pengiriman
+        </a>
+        <a href="{{ route('admin.ordermanagements.index') }}" class="btn text-white"
             style="background-color: #6c757d; border-color: #6c757d;">
-            <span class="fa fa-arrow-left"></span>
-            Back
+            <span class="fa fa-arrow-left"></span> Back
         </a>
     </div>
-
 @endsection

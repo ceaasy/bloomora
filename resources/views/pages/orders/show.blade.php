@@ -7,7 +7,11 @@
         <h1 class="h3 mb-0" style="color: #450404;">Detail Pesanan #BLM-{{ str_pad($order->id, 4, '0', STR_PAD_LEFT) }}</h1>
     </div>
     @php
-        $tahapan = ['Diproses', 'Disiapkan', 'Siap Diambil/Dikirim', 'Dibayar', 'Selesai'];
+        if ($order->pickup_method === 'Dikirim') {
+            $tahapan = ['Diproses', 'Disiapkan', 'Siap Dikirim', 'Dibayar', 'Selesai'];
+        } else {
+            $tahapan = ['Diproses', 'Disiapkan', 'Siap Diambil', 'Dibayar', 'Selesai'];
+        }
 
         if ($order->status === 'Selesai') {
             $tahapAktif = 4;

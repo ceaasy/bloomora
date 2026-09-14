@@ -25,7 +25,7 @@ class AdminAuthController extends Controller
 
         if (Auth::guard('web')->attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended(route('admin.dashboard'))->with('success', 'Login Berhasil');
+            return redirect()->intended(route('admin.dashboard.index'))->with('success', 'Login Berhasil');
         }
 
         return back()->withErrors([

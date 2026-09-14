@@ -21,11 +21,15 @@ class ShipmentManagementController extends Controller
     }
     public function edit(Shipment $shipment)
     {
+        $shipment->load('order.orderDetails.product', 'order.customer', 'order.payment');
+
         return view('pages.shipmentmanagements.edit', compact('shipment'));
     }
 
-   public function update(Request $request, Shipment $shipment)
+    public function update(Request $request, Shipment $shipment)
     {
+        $shipment->load('order.payment');
+
         $request->validate([
             'tracking_number' => 'nullable|string',
             'status' => 'required|in:Menunggu,Dikirim,Siap Diambil,Selesai',
@@ -34,17 +38,33 @@ class ShipmentManagementController extends Controller
             'status.in' => 'Status yang dipilih tidak valid.',
         ]);
 
+        if ($request->status !== 'Menunggu'
+            && !in_array($shipment->order->status, ['Siap Diambil/Dikirim', 'Selesai'])) {
+            return back()->with('error', 'Pesanan belum mencapai status "Siap Diambil/Dikirim", status pengiriman belum bisa diperbarui.');
+        }
+
+        if ($shipment->order->pickup_method === 'Dikirim'
+            && in_array($request->status, ['Dikirim', 'Selesai'])
+            && empty($request->tracking_number)) {
+            return back()
+                ->withErrors(['tracking_number' => 'Nomor resi wajib diisi untuk pesanan dengan metode pengiriman.'])
+                ->withInput();
+        }
+
         $shipment->update([
-            'tracking_number' => $request->tracking_number,
+            'tracking_number' => $shipment->order->pickup_method === 'Dikirim' ? $request->tracking_number : null,
             'status' => $request->status,
         ]);
 
         if ($request->status === 'Selesai') {
             $shipment->order->update(['status' => 'Selesai']);
-            $shipment->order->payment->update(['status' => 'Sudah Dibayar', 'payment_date' => $shipment->order->payment->payment_date ?? now()]);
+            $shipment->order->payment->update([
+                'status' => 'Sudah Dibayar',
+                'payment_date' => $shipment->order->payment->payment_date ?? now(),
+            ]);
         }
 
         return redirect()->route('admin.shipmentmanagements.index')
-            ->with('success', 'Status pesanan(Pengiriman) berhasil diperbarui');
+            ->with('success', 'Status pesanan (Pengiriman) berhasil diperbarui');
     }
 }
