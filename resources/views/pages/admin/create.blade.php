@@ -19,8 +19,8 @@
                             <label for="profile_photo" class="form-label">Profile Photo</label>
 
                             <div class="d-flex align-items-center gap-3 mb-2">
-                                <img id="photo-preview" src="{{ asset('img/default.png') }}" alt="Preview"
-                                    width="80" height="80" class="rounded-circle border" style="object-fit: cover;">
+                                <img id="photo-preview" src="{{ asset('img/default.png') }}" alt="Preview" width="80"
+                                    height="80" class="rounded-circle border" style="object-fit: cover;">
                             </div>
 
                             <input type="file" name="profile_photo" id="profile_photo" accept="image/*"
@@ -28,7 +28,7 @@
                                 onchange="previewPhoto(event)">
 
                             @error('profile_photo')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -39,7 +39,7 @@
                                 class="form-control @error('name') is-invalid @enderror">
 
                             @error('name')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -51,7 +51,7 @@
                                 class="form-control @error('email') is-invalid @enderror">
 
                             @error('email')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -63,7 +63,7 @@
                                 class="form-control @error('password') is-invalid @enderror">
 
                             @error('password')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror

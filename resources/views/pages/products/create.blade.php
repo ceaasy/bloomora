@@ -27,7 +27,7 @@
                                 class="form-control @error('photo') is-invalid @enderror" onchange="previewPhoto(event)">
 
                             @error('photo')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -39,7 +39,7 @@
                                 class="form-control @error('name') is-invalid @enderror">
 
                             @error('name')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -56,7 +56,7 @@
                             </select>
 
                             @error('category')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -68,7 +68,7 @@
                                 class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
 
                             @error('description')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -80,7 +80,7 @@
                                 class="form-control @error('stock') is-invalid @enderror">
 
                             @error('stock')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -95,7 +95,7 @@
                                         class="form-control @error('price_small') is-invalid @enderror">
 
                                     @error('price_small')
-                                        <div class="invalid-feedack d-block">
+                                        <div class="invalid-feedback d-block">
                                             <span>{{ $message }}</span>
                                         </div>
                                     @enderror
@@ -109,7 +109,7 @@
                                         class="form-control @error('price_medium') is-invalid @enderror">
 
                                     @error('price_medium')
-                                        <div class="invalid-feedack d-block">
+                                        <div class="invalid-feedback d-block">
                                             <span>{{ $message }}</span>
                                         </div>
                                     @enderror
@@ -123,7 +123,7 @@
                                         class="form-control @error('price_large') is-invalid @enderror">
 
                                     @error('price_large')
-                                        <div class="invalid-feedack d-block">
+                                        <div class="invalid-feedback d-block">
                                             <span>{{ $message }}</span>
                                         </div>
                                     @enderror

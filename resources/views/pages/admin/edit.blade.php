@@ -11,7 +11,8 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <form action="{{ route('admin.admin.update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.admin.update', encrypt($user->id)) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -32,7 +33,7 @@
 
 
                             @error('profile_photo')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -43,7 +44,7 @@
                                 class="form-control @error('name') is-invalid @enderror">
 
                             @error('name')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -55,7 +56,7 @@
                                 class="form-control @error('email') is-invalid @enderror">
 
                             @error('email')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
@@ -67,7 +68,7 @@
                                 class="form-control @error('password') is-invalid @enderror">
 
                             @error('password')
-                                <div class="invalid-feedack d-block">
+                                <div class="invalid-feedback d-block">
                                     <span>{{ $message }}</span>
                                 </div>
                             @enderror
