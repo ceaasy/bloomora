@@ -39,6 +39,18 @@
 
     @stack('scripts')
 
+    @if (Session::has('success'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    title: "Berhasil!",
+                    text: "{{ Session::get('success') }}",
+                    icon: "success"
+                });
+            });
+        </script>
+    @endif
+
 </body>
 
 </html>

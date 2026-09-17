@@ -116,18 +116,13 @@
 </head>
 
 <body>
-
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
     <div>
         <p class="guest-page-title"><span>@yield('page_title')</span></p>
         <div class="guest-outer-frame">
             @yield('content')
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('scripts')
 
     @if (Session::has('success'))
