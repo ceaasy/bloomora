@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Poppins:wght@400;500;600;700&display=swap');
 
 $primary:   #D6336C;
 $secondary: #B96F84;
@@ -7,4 +8,120 @@ $success:   #4A9D6E;
 $danger:    #C0392B;
 $warning:   #E0A458;
 
+// Brand colors
+$bloomora-dark:       #4A3F3F;
+$bloomora-light-pink: #FBE3EC;
+$bloomora-green:      #4C6B4F;
+$bloomora-maroon:     #9C2B3A;
+$bloomora-whatsapp:   #25D366;
+
+// Font 
+$font-heading: 'Playfair Display', serif;
+$font-body:    'Nunito', sans-serif;
+$font-guest:   'Poppins', sans-serif;
+
 @import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Tombol brand
+.btn-bloomora-pink {
+    background-color: $primary;
+    border-color: $primary;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        background-color: #B92A5B;
+        border-color: #B92A5B;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+    }
+}
+
+.btn.text-white[style*="D6336C"] {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+    }
+}
+
+// Layout: Guest (Login/Register)
+.guest-page {
+    font-family: $font-guest;
+    background: #FAF3F0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 12px;
+}
+
+.guest-page-title {
+    text-align: center;
+    margin-bottom: 20px;
+
+    span {
+        display: inline-block;
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        color: #B4275A;
+        text-transform: uppercase;
+        background-color: $bloomora-light-pink;
+        padding: 6px 18px;
+        border-radius: 50px;
+    }
+}
+
+.guest-outer-frame {
+    border: 1px solid #E8D5D5;
+    border-radius: 12px;
+    padding: 24px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(214, 51, 108, 0.08);
+    width: 600px;
+    max-width: 100%;
+}
+
+.guest-card {
+    border-radius: 16px;
+    padding: 36px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.card-pink {
+    background: #FBE9EE;
+}
+
+.card-maroon {
+    background: #F3E1E3;
+}
+
+.btn-bloomora-maroon {
+    background-color: $bloomora-maroon;
+    border-color: $bloomora-maroon;
+
+    &:hover {
+        background-color: #7E2230;
+        border-color: #7E2230;
+    }
+}
+
+.link-pink {
+    color: $primary;
+    font-weight: 600;
+}
+
+.link-maroon {
+    color: $bloomora-maroon;
+    font-weight: 600;
+}

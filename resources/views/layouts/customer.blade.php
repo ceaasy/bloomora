@@ -9,25 +9,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
     @vite(['resources/sass/app.scss'])
     @stack('styles')
-    <style>
-        .btn-bloomora-pink,
-        .btn.text-white[style*="D6336C"] {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
 
-        .btn-bloomora-pink:hover,
-        .btn.text-white[style*="D6336C"]:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
-        }
-
-        .btn-bloomora-pink:active,
-        .btn.text-white[style*="D6336C"]:active {
-            transform: translateY(-1px);
-        }
-    </style>
 </head>
 
 <body>
