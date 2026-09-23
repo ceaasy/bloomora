@@ -4,8 +4,7 @@
 
 @section('content')
     <div class="container py-4">
-        <a href="{{ route('customer.catalog.index') }}" class="text-decoration-none mb-3 d-inline-block"
-            style="color: #B96F84;">
+        <a href="{{ route('customer.catalog.index') }}" class="text-decoration-none mb-3 d-inline-block back-link">
             <span class="fa fa-arrow-left"></span> Kembali ke Katalog
         </a>
 
@@ -16,12 +15,12 @@
             </div>
 
             <div class="col-md-7">
-                <h2 class="mb-4" style="color: #ea88b3; font-weight: 800; letter-spacing: -0.5px; font-size: 2.3rem;">
+                <h2 class="mb-4 product-title-detail">
                     {{ $product->name }}
                 </h2>
                 <p class="text-muted mb-3">Kategori: {{ $product->category }}</p>
 
-                <div class="p-3 rounded-3 mb-4" style="background-color: #FFFAF7; border: 1px solid #FBE3EC;">
+                <div class="p-3 rounded-3 mb-4 desc-box">
                     {{ $product->description }}
                 </div>
 
@@ -31,16 +30,16 @@
 
                     <p class="fw-semibold mb-2" style="color: #4A3F3F;">Pilih Ukuran & Harga</p>
                     <div class="d-flex gap-2 mb-4">
-                        <button type="button" class="btn size-option rounded-3 flex-fill" data-size="Small"
-                            data-price="{{ $product->price_small }}" style="background-color: #D6336C; color: white;">
+                        <button type="button" class="btn size-option is-active rounded-3 flex-fill" data-size="Small"
+                            data-price="{{ $product->price_small }}">
                             Small<br><small>Rp{{ number_format($product->price_small, 0, ',', '.') }}</small>
                         </button>
                         <button type="button" class="btn size-option rounded-3 flex-fill" data-size="Medium"
-                            data-price="{{ $product->price_medium }}" style="border: 1px solid #D6336C; color: #4A3F3F;">
+                            data-price="{{ $product->price_medium }}">
                             Medium<br><small>Rp{{ number_format($product->price_medium, 0, ',', '.') }}</small>
                         </button>
                         <button type="button" class="btn size-option rounded-3 flex-fill" data-size="Large"
-                            data-price="{{ $product->price_large }}" style="border: 1px solid #D6336C; color: #4A3F3F;">
+                            data-price="{{ $product->price_large }}">
                             Large<br><small>Rp{{ number_format($product->price_large, 0, ',', '.') }}</small>
                         </button>
                     </div>
@@ -64,21 +63,18 @@
 
                     <p class="fw-semibold mb-2" style="color: #4A3F3F;">Jumlah:</p>
                     <div class="d-flex align-items-center gap-2 mb-4">
-                        <button type="button" class="btn btn-sm" style="border: 1px solid #D6336C;"
-                            onclick="ubahJumlah(-1)">-</button>
+                        <button type="button" class="btn btn-sm qty-btn" onclick="ubahJumlah(-1)">-</button>
                         <input type="text" name="quantity" id="jumlahProduk" value="1" readonly
                             class="text-center border-0" style="width: 30px;">
-                        <button type="button" class="btn btn-sm" style="border: 1px solid #D6336C;"
-                            onclick="ubahJumlah(1)">+</button>
+                        <button type="button" class="btn btn-sm qty-btn" onclick="ubahJumlah(1)">+</button>
                     </div>
 
                     <div class="d-flex gap-2">
                         <button type="submit" formaction="{{ route('customer.carts.buyNow', $product->id) }}"
-                            class="btn rounded-pill flex-fill py-2" style="background-color: #D6336C; color: white;">
+                            class="btn rounded-pill flex-fill py-2 btn-checkout">
                             Checkout
                         </button>
-                        <button type="submit" class="btn rounded-pill flex-fill py-2"
-                            style="border: 1px solid #B96F84; color: #B96F84;">
+                        <button type="submit" class="btn rounded-pill flex-fill py-2 btn-add-cart">
                             + Keranjang
                         </button>
                     </div>
@@ -88,13 +84,12 @@
 
         <div class="mt-5 pt-4" style="border-top: 2px solid #FBE3EC;">
 
-            <span class="badge rounded-pill px-3 py-2 mb-3 d-inline-block"
-                style="background-color: #FBE3EC; color: #B96F84; font-size: 0.9rem;">
+            <span class="badge rounded-pill px-3 py-2 mb-3 d-inline-block review-badge">
                 Ulasan
             </span>
 
             @forelse ($product->reviews as $review)
-                <div class="p-3 mb-2 rounded-3" style="background-color: white; border: 1px solid #FBE3EC;">
+                <div class="p-3 mb-2 rounded-3 review-card">
                     <p class="mb-1">
                         @for ($i = 1; $i <= 5; $i++)
                             <span class="fa fa-star"
@@ -108,12 +103,12 @@
                     @endif
 
                     @if ($review->photo)
-                        <img src="{{ asset('storage/' . $review->photo) }}" alt="Foto ulasan" class="rounded-3"
-                            style="max-width: 120px; max-height: 120px; object-fit: cover;">
+                        <img src="{{ asset('storage/' . $review->photo) }}" alt="Foto ulasan"
+                            class="rounded-3 review-photo">
                     @endif
                 </div>
             @empty
-                <div class="p-3 rounded-3" style="background-color: white; border: 1px solid #FBE3EC;">
+                <div class="p-3 rounded-3 review-card">
                     <p class="mb-0 text-muted">Belum ada ulasan untuk produk ini.</p>
                 </div>
             @endforelse
@@ -132,12 +127,8 @@
 
         document.querySelectorAll('.size-option').forEach(btn => {
             btn.addEventListener('click', function() {
-                document.querySelectorAll('.size-option').forEach(b => {
-                    b.style.backgroundColor = 'transparent';
-                    b.style.color = '#4A3F3F';
-                });
-                this.style.backgroundColor = '#D6336C';
-                this.style.color = 'white';
+                document.querySelectorAll('.size-option').forEach(b => b.classList.remove('is-active'));
+                this.classList.add('is-active');
                 document.getElementById('selectedSize').value = this.dataset.size;
             });
         });

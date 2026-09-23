@@ -5,7 +5,7 @@
 @section('content')
     <div class="container py-4">
 
-        <h3 class="fw-bold mb-4" style="color: #D6336C;">Keranjang Saya</h3>
+        <h3 class="fw-bold mb-4 cart-heading">Keranjang Saya</h3>
 
         @if ($carts->isEmpty())
             <p class="text-muted">Keranjang kamu masih kosong.</p>
@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <table class="table table-bordered table-hover align-middle">
                         <thead>
-                            <tr style="background-color: #FBE3EC;">
+                            <tr class="cart-table-header">
                                 <th>
                                     <input type="checkbox" id="checkAll" onchange="toggleAll(this)">
                                 </th>
@@ -66,7 +66,7 @@
                                             @method('PATCH')
 
                                             <button type="submit" name="quantity" value="{{ max(1, $cart->quantity - 1) }}"
-                                                class="btn btn-sm" style="border: 1px solid #D6336C;">
+                                                class="btn btn-sm cart-qty-btn">
                                                 -
                                             </button>
 
@@ -75,7 +75,7 @@
                                             </span>
 
                                             <button type="submit" name="quantity" value="{{ $cart->quantity + 1 }}"
-                                                class="btn btn-sm" style="border: 1px solid #D6336C;">
+                                                class="btn btn-sm cart-qty-btn">
                                                 +
                                             </button>
                                         </form>
@@ -113,13 +113,12 @@
 
             <div class="d-flex flex-column align-items-end gap-2 mt-4">
 
-                <div class="px-4 py-2 rounded-3" style="border: 1px solid #D6336C; color: #D6336C;">
+                <div class="px-4 py-2 rounded-3 cart-total-box">
                     Total:
                     <span id="totalKeranjang">Rp0</span>
                 </div>
 
-                <button type="submit" form="checkoutForm" class="btn rounded-pill px-4"
-                    style="background-color: #D6336C; color: white;">
+                <button type="submit" form="checkoutForm" class="btn rounded-pill px-4 btn-cart-checkout">
                     Checkout
                 </button>
 

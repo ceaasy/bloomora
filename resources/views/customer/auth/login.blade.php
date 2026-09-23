@@ -6,11 +6,10 @@
 @section('content')
 
     <div class="text-center mb-4">
-        <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
-            style="width: 64px; height: 64px; background-color: #FBE3EC;">
-            <span class="fa fa-user-circle-o" style="color: #D6336C; font-size: 1.5rem;"></span>
+        <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3 login-icon-circle">
+            <span class="fa fa-user-circle-o"></span>
         </div>
-        <h4 class="fw-bold mb-1" style="color: #D6336C; font-family: 'Playfair Display', serif;">
+        <h4 class="fw-bold mb-1 login-welcome-title">
             Selamat Datang Kembali
         </h4>
         <p class="text-muted mb-0" style="font-size: 0.9rem;">
@@ -20,8 +19,7 @@
 
     <div class="guest-card card-pink mx-auto position-relative overflow-hidden">
 
-        <div class="position-absolute rounded-circle"
-            style="width: 120px; height: 120px; background: #ffffff55; top: -50px; right: -40px;"></div>
+        <div class="position-absolute rounded-circle login-decor-circle"></div>
 
         <form method="POST" action="{{ route('customer.login') }}" class="position-relative">
             @csrf

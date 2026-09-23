@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0" style="color: #c57b7b;">Riwayat Pesanan anda</h1>
+        <h1 class="h3 mb-0 riwayat-heading">Riwayat Pesanan anda</h1>
     </div>
 
     @if ($orders->isEmpty())
@@ -45,13 +45,13 @@
                                 <td>{{ $order->created_at->format('d M Y') }}</td>
                                 <td>Rp{{ number_format($order->total_price, 0, ',', '.') }}</td>
                                 <td>
-                                    <span class="badge rounded-pill" style="background-color: #FBE3EC; color: #B96F84;">
+                                    <span class="badge rounded-pill status-badge">
                                         {{ $order->status }}
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="{{ route('customer.orders.show', $order->id) }}" class="btn btn-link p-0"
-                                        style="color: #000000;">
+                                    <a href="{{ route('customer.orders.show', $order->id) }}"
+                                        class="btn btn-link p-0 action-link-dark">
                                         <span class="fa fa-eye"></span>
                                     </a>
                                 </td>

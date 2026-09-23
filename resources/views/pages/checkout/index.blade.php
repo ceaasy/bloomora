@@ -5,7 +5,7 @@
 @section('content')
     <div class="container py-4">
 
-        <h3 class="fw-bold mb-4" style="color: #D6336C;">Checkout</h3>
+        <h3 class="fw-bold mb-4 checkout-heading">Checkout</h3>
 
         <form action="{{ route('customer.checkout.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -82,8 +82,8 @@
                 </div>
 
                 <div class="col-md-5">
-                    <div class="p-4 rounded-4" style="background-color: #FFFAF7; border: 1px solid #FBE3EC;">
-                        <h6 class="fw-bold mb-3" style="color: #D6336C;">Ringkasan Pesanan</h6>
+                    <div class="p-4 rounded-4 checkout-summary-box">
+                        <h6 class="fw-bold mb-3 checkout-heading">Ringkasan Pesanan</h6>
 
                         <div class="d-flex justify-content-between mb-2">
                             <span>Subtotal Produk</span>
@@ -94,18 +94,16 @@
                             <span id="ongkirDisplay">Rp0</span>
                         </div>
                         <hr>
-                        <div class="d-flex justify-content-between fw-bold mb-3" style="color: #D6336C;">
+                        <div class="d-flex justify-content-between fw-bold mb-3 checkout-total">
                             <span>TOTAL</span>
                             <span id="totalDisplay">Rp{{ number_format($subtotal, 0, ',', '.') }}</span>
                         </div>
                         <p class="small text-muted mb-4">Metode Pembayaran: Cash Saat Barang Dikirim/Diambil</p>
 
-                        <button type="submit" class="btn w-100 rounded-pill py-2 mb-2"
-                            style="background-color: #D6336C; color: white;">
+                        <button type="submit" class="btn w-100 rounded-pill py-2 mb-2 btn-confirm-order">
                             Konfirmasi Pesanan
                         </button>
-                        <a href="{{ route('customer.carts.index') }}" class="btn w-100 rounded-pill py-2"
-                            style="border: 1px solid #B96F84; color: #B96F84;">
+                        <a href="{{ route('customer.carts.index') }}" class="btn w-100 rounded-pill py-2 btn-cancel-order">
                             Batal
                         </a>
                     </div>
@@ -113,13 +111,13 @@
             </div>
 
             <div class="mt-4">
-                <h6 class="fw-bold mb-3" style="color: #D6336C;">Rincian Item Pesanan</h6>
+                <h6 class="fw-bold mb-3 checkout-heading">Rincian Item Pesanan</h6>
 
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <table class="table table-bordered table-hover align-middle">
                             <thead>
-                                <tr style="background-color: #FBE3EC;">
+                                <tr class="checkout-table-header">
                                     <th>Produk</th>
                                     <th>Ukuran</th>
                                     <th>Qty</th>

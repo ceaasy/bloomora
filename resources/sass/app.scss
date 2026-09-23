@@ -15,7 +15,7 @@ $bloomora-green:      #4C6B4F;
 $bloomora-maroon:     #9C2B3A;
 $bloomora-whatsapp:   #25D366;
 
-// Font 
+// Font
 $font-heading: 'Playfair Display', serif;
 $font-body:    'Nunito', sans-serif;
 $font-guest:   'Poppins', sans-serif;
@@ -124,4 +124,523 @@ $font-guest:   'Poppins', sans-serif;
 .link-maroon {
     color: $bloomora-maroon;
     font-weight: 600;
+}
+
+// Halaman: Login Customer
+.login-icon-circle {
+    width: 64px;
+    height: 64px;
+    background-color: $bloomora-light-pink;
+
+    .fa {
+        color: $primary;
+        font-size: 1.5rem;
+    }
+}
+
+.login-welcome-title {
+    color: $primary;
+    font-family: $font-heading;
+}
+
+.login-decor-circle {
+    width: 120px;
+    height: 120px;
+    background: #ffffff55;
+    top: -50px;
+    right: -40px;
+}
+
+// Halaman: Katalog Produk
+.catalog-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+    color: $secondary;
+    font-weight: 600;
+}
+
+.catalog-title {
+    color: $bloomora-dark;
+    font-family: $font-heading;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+
+    em {
+        color: $secondary;
+        font-style: italic;
+    }
+}
+
+.catalog-subtitle {
+    color: #8C7A7A;
+    font-size: 0.88rem;
+}
+
+.catalog-tagline {
+    font-family: $font-heading;
+    font-style: italic;
+    color: $secondary;
+    font-size: 0.95rem;
+}
+
+.search-box {
+    position: relative;
+    max-width: 320px;
+
+    input {
+        background-color: $bloomora-light-pink;
+        border: none;
+    }
+
+    .search-icon {
+        color: $primary;
+    }
+}
+
+.filter-pill {
+    &.is-active {
+        background-color: $primary;
+        color: #fff;
+
+        &:hover {
+            background-color: #B92A5B;
+            color: #fff;
+        }
+    }
+
+    &:not(.is-active) {
+        background-color: transparent;
+        border: 1px solid $primary;
+        color: $primary;
+
+        &:hover {
+            background-color: $bloomora-light-pink;
+            color: $primary;
+        }
+    }
+}
+
+.product-card-badge {
+    top: 10px;
+    left: 10px;
+    background-color: #fff;
+    color: $primary;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.product-card-name {
+    color: $bloomora-dark;
+}
+
+.btn-detail-lift {
+    background-color: $primary;
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        background-color: #B92A5B;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
+        color: #fff;
+    }
+}
+
+.whatsapp-cta {
+    background-color: $bloomora-light-pink;
+    border: 1px solid #F7D3E1;
+
+    .label {
+        font-family: $font-heading;
+        font-style: italic;
+        color: $secondary;
+        font-weight: 600;
+    }
+}
+
+.btn-whatsapp {
+    background-color: $bloomora-whatsapp;
+    color: #fff;
+    border-radius: 50px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+        background-color: #1EBE57;
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(37, 211, 102, 0.35);
+    }
+}
+
+// Halaman: Detail Produk
+.back-link {
+    color: $secondary;
+}
+
+.product-title-detail {
+    color: #ea88b3;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    font-size: 2.3rem;
+}
+
+.desc-box {
+    background-color: $light;
+    border: 1px solid $bloomora-light-pink;
+}
+
+.size-option {
+    border: 1px solid $primary;
+    color: $bloomora-dark;
+    background-color: transparent;
+
+    &.is-active {
+        background-color: $primary;
+        color: #fff;
+    }
+}
+
+.qty-btn {
+    border: 1px solid $primary;
+}
+
+.btn-checkout {
+    background-color: $primary;
+    color: #fff;
+
+    &:hover {
+        background-color: #B92A5B;
+        color: #fff;
+    }
+}
+
+.btn-add-cart {
+    border: 1px solid $secondary;
+    color: $secondary;
+
+    &:hover {
+        background-color: $bloomora-light-pink;
+        color: $secondary;
+    }
+}
+
+.review-badge {
+    background-color: $bloomora-light-pink;
+    color: $secondary;
+    font-size: 0.9rem;
+}
+
+.review-card {
+    background-color: #fff;
+    border: 1px solid $bloomora-light-pink;
+}
+
+.review-photo {
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: cover;
+}
+
+// Halaman: Checkout
+.checkout-heading {
+    color: $primary;
+}
+
+.checkout-summary-box {
+    background-color: $light;
+    border: 1px solid $bloomora-light-pink;
+}
+
+.checkout-total {
+    color: $primary;
+}
+
+.btn-confirm-order {
+    background-color: $primary;
+    color: #fff;
+
+    &:hover {
+        background-color: #B92A5B;
+        color: #fff;
+    }
+}
+
+.btn-cancel-order {
+    border: 1px solid $secondary;
+    color: $secondary;
+
+    &:hover {
+        background-color: $bloomora-light-pink;
+        color: $secondary;
+    }
+}
+
+.checkout-table-header {
+    background-color: $bloomora-light-pink;
+}
+
+// Halaman: Pesanan Berhasil
+.success-box {
+    background-color: $bloomora-light-pink;
+    max-width: 480px;
+}
+
+.success-icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #d4edda;
+
+    .fa {
+        color: #28a745;
+    }
+}
+
+.order-number-box {
+    background-color: #fff;
+}
+
+.order-number-value {
+    color: $primary;
+}
+
+.btn-view-order {
+    background-color: $primary;
+    color: #fff;
+
+    &:hover {
+        background-color: #B92A5B;
+        color: #fff;
+    }
+}
+
+.btn-back-catalog {
+    border: 1px solid $primary;
+    color: $primary;
+
+    &:hover {
+        background-color: $bloomora-light-pink;
+        color: $primary;
+    }
+}
+
+// Halaman: Keranjang
+.cart-heading {
+    color: $primary;
+}
+
+.cart-table-header {
+    background-color: $bloomora-light-pink;
+}
+
+.cart-qty-btn {
+    border: 1px solid $primary;
+}
+
+.cart-total-box {
+    border: 1px solid $primary;
+    color: $primary;
+}
+
+.btn-cart-checkout {
+    background-color: $primary;
+    color: #fff;
+
+    &:hover {
+        background-color: #B92A5B;
+        color: #fff;
+    }
+}
+// Halaman: Riwayat Pesanan
+.riwayat-heading {
+    color: #c57b7b;
+}
+
+.status-badge {
+    background-color: $bloomora-light-pink;
+    color: $secondary;
+}
+
+.action-link-dark {
+    color: $bloomora-dark;
+}
+
+// Halaman: Detail Pesanan
+.detail-heading {
+    color: #450404;
+}
+
+.step-connector {
+    top: 16px;
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background-color: $bloomora-light-pink;
+    z-index: 0;
+}
+
+.step-circle {
+    width: 32px;
+    height: 32px;
+    z-index: 2;
+
+    &.is-active {
+        background-color: $primary;
+        color: #fff;
+    }
+
+    &.is-inactive {
+        background-color: $bloomora-light-pink;
+        color: $secondary;
+    }
+}
+
+.step-label {
+    &.is-active {
+        color: $primary;
+    }
+
+    &.is-inactive {
+        color: $secondary;
+    }
+}
+
+
+.info-box {
+    background-color: $light;
+    border: 1px solid $bloomora-light-pink;
+}
+
+.info-box-title {
+    color: $primary;
+}
+
+.info-value-box {
+    background-color: $bloomora-light-pink;
+}
+
+.status-badge-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.btn-review-active {
+    background-color: $primary;
+    color: #fff;
+}
+
+.btn-review-done {
+    background-color: #adb5bd;
+    color: #fff;
+}
+
+.btn-back-detail {
+    border: 1px solid $secondary;
+    color: $secondary;
+
+    &:hover {
+        background-color: $bloomora-light-pink;
+        color: $secondary;
+    }
+}
+.order-summary-box {
+    max-width: 350px;
+}
+
+// Halaman: Ubah Profil Customer
+.profile-title {
+    color: $primary;
+}
+
+.profile-photo-circle {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid $primary;
+}
+
+.profile-photo-placeholder {
+    width: 100px;
+    height: 100px;
+    border: 1px solid $primary;
+}
+
+.profile-photo-label {
+    color: $primary;
+}
+
+// Halaman: Tentang Kami
+.about-badge {
+    background-color: $bloomora-light-pink;
+    color: $primary;
+    font-weight: 600;
+}
+
+.about-heading {
+    color: $bloomora-dark;
+}
+
+.about-intro-box {
+    background-color: $light;
+    border: 1px solid #F0B8CB;
+}
+
+.about-gradient-card {
+    background: linear-gradient(160deg, $primary, #B4275A);
+    color: #fff;
+}
+
+.about-solid-pink-card {
+    background-color: #db5d85;
+    color: $light;
+}
+
+.about-cta-strip {
+    background: linear-gradient(135deg, $bloomora-light-pink 0%, #F7D3E1 100%);
+}
+
+.about-cta-text {
+    color: $bloomora-dark;
+}
+
+.btn-about-cta {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+
+    &:hover {
+        background-color: #B92A5B;
+        border-color: #B92A5B;
+        color: #fff;
+    }
+}
+
+.about-outline-card {
+    background-color: $light;
+    border: 1px solid #F0B8CB;
+
+    .icon {
+        color: $primary;
+    }
+
+    .title {
+        color: $bloomora-dark;
+    }
+}
+
+.about-gradient-card .subtext {
+    opacity: 0.9;
+}
+
+.contact-card {
+    background-color: $light;
+    border: 1px solid #F0B8CB;
+
+    .icon {
+        color: $primary;
+    }
+
+    .value {
+        color: $bloomora-dark;
+    }
 }
