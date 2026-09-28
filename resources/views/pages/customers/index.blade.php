@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0" style="color: #4A3F3F;">Data Customer</h1>
+        <h1 class="h3 mb-0 customer-page-title">Data Customer</h1>
     </div>
 
     <div class="card border-0 shadow-sm">

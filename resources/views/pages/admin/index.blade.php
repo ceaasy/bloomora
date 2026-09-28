@@ -5,9 +5,8 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0" style="color: #4A3F3F;">Data Admin</h1>
-        <a href="{{ route('admin.admin.create') }}" class="btn text-white"
-            style="background-color: #9C2B3A; border-color: #9C2B3A;">
+        <h1 class="h3 mb-0 admin-page-title">Data Admin</h1>
+        <a href="{{ route('admin.admin.create') }}" class="btn text-white btn-create-admin">
             <span class="fa fa-plus-circle me-1"></span> Create New
         </a>
     </div>
@@ -40,8 +39,8 @@
                                     class="btn btn-link text-dark p-0 mx-2">
                                     <span class="fa fa-eye"></span>
                                 </a>
-                                <a href="{{ route('admin.admin.edit', encrypt($user->id)) }}" class="btn btn-link p-0 mx-2"
-                                    style="color: #0d6efd;">
+                                <a href="{{ route('admin.admin.edit', encrypt($user->id)) }}"
+                                    class="btn btn-link p-0 mx-2 action-link-edit">
                                     <span class="fa fa-edit"></span>
                                 </a>
                                 <a href="#"
@@ -65,7 +64,6 @@
 
 @push('scripts')
     <script type="text/javascript">
-
         function handleDestroy(url) {
             Swal.fire({
                 title: "Apakah anda menghapus?",
@@ -82,22 +80,6 @@
                     $('#form-destroy').submit();
                 };
             });
-
-            // if (confirm('Apakah kamu akan menghapus data?')) {
-            //     $('#form-destroy').attr('action', url);
-            //     $('#form-destroy').submit();
-            // }
         }
     </script>
-
-    @if (Session::has('success'))
-        <script type="text/javascript">
-            Swal.fire({
-                title: "Berhasil!",
-                text: "{{ Session::get('success') }}",
-                icon: "success",
-                draggable: true
-            });
-        </script>
-    @endif
 @endpush

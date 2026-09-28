@@ -5,10 +5,10 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0" style="color: #4A3F3F;">Daftar Pengiriman</h1>
+        <h1 class="h3 mb-0 order-page-title">Daftar Pengiriman</h1>
     </div>
 
-    <ul class="nav nav-pills mb-4">
+    <ul class="nav nav-pills mb-4 order-nav-pills">
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.ordermanagements.index') }}">Order</a>
         </li>
@@ -16,8 +16,7 @@
             <a class="nav-link" href="{{ route('admin.paymentmanagements.index') }}">Payment</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" style="background-color: #D6336C;"
-                href="{{ route('admin.shipmentmanagements.index') }}">Shipment</a>
+            <a class="nav-link active" href="{{ route('admin.shipmentmanagements.index') }}">Shipment</a>
         </li>
     </ul>
 
@@ -48,7 +47,7 @@
                                     <span class="fa fa-eye"></span>
                                 </a>
                                 <a href="{{ route('admin.shipmentmanagements.edit', $shipment->id) }}"
-                                    class="btn btn-link p-0 mx-2" style="color: #0d6efd;">
+                                    class="btn btn-link p-0 mx-2 action-link-edit">
                                     <span class="fa fa-edit"></span>
                                 </a>
                             </td>
@@ -60,16 +59,3 @@
     </div>
 
 @endsection
-
-@push('scripts')
-    <script type="text/javascript">
-        @if (Session::has('success'))
-            Swal.fire({
-                title: "Berhasil!",
-                text: "{{ Session::get('success') }}",
-                icon: "success",
-                draggable: true
-            });
-        @endif
-    </script>
-@endpush

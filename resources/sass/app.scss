@@ -53,6 +53,58 @@ $font-guest:   'Poppins', sans-serif;
     }
 }
 
+// Komponen: Navbar & Sidebar
+.img-cover {
+    object-fit: cover;
+}
+
+// Navbar Customer
+.navbar-bloomora {
+    background-color: $primary;
+}
+
+.cart-link {
+    padding: 0.4rem 0.6rem;
+}
+
+.cart-icon {
+    font-size: 1.3rem;
+}
+
+.cart-badge {
+    font-size: 0.6rem;
+}
+
+// Sidebar Admin
+.sidebar-admin {
+    width: 220px;
+    flex-shrink: 0;
+    height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    background-color: $bloomora-light-pink;
+}
+
+.sidebar-brand-text {
+    color: $bloomora-dark;
+}
+
+.sidebar-link {
+    color: $bloomora-dark;
+    border-radius: 8px;
+
+    &.is-active {
+        background-color: #fff;
+        font-weight: 600;
+    }
+}
+
+.sidebar-link-label {
+    font-size: 13px;
+}
+
 // Layout: Guest (Login/Register)
 .guest-page {
     font-family: $font-guest;
@@ -149,6 +201,23 @@ $font-guest:   'Poppins', sans-serif;
     background: #ffffff55;
     top: -50px;
     right: -40px;
+}
+
+// Halaman: Login Admin
+.login-icon-circle-admin {
+    width: 64px;
+    height: 64px;
+    background-color: $bloomora-light-pink;
+
+    .fa {
+        color: $bloomora-maroon;
+        font-size: 1.5rem;
+    }
+}
+
+.login-welcome-title-admin {
+    color: $bloomora-maroon;
+    font-family: $font-heading;
 }
 
 // Halaman: Katalog Produk
@@ -451,6 +520,7 @@ $font-guest:   'Poppins', sans-serif;
         color: #fff;
     }
 }
+
 // Halaman: Riwayat Pesanan
 .riwayat-heading {
     color: #c57b7b;
@@ -465,7 +535,7 @@ $font-guest:   'Poppins', sans-serif;
     color: $bloomora-dark;
 }
 
-// Halaman: Detail Pesanan
+// Halaman: Detail Pesanan (class info-box dipakai halaman admin)
 .detail-heading {
     color: #450404;
 }
@@ -505,7 +575,6 @@ $font-guest:   'Poppins', sans-serif;
     }
 }
 
-
 .info-box {
     background-color: $light;
     border: 1px solid $bloomora-light-pink;
@@ -543,6 +612,7 @@ $font-guest:   'Poppins', sans-serif;
         color: $secondary;
     }
 }
+
 .order-summary-box {
     max-width: 350px;
 }
@@ -567,6 +637,60 @@ $font-guest:   'Poppins', sans-serif;
 
 .profile-photo-label {
     color: $primary;
+}
+
+// Halaman: Beri Ulasan
+.review-form-card {
+    background-color: $bloomora-light-pink;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.review-form-title {
+    color: $primary;
+}
+
+.review-product-thumb {
+    width: 60px;
+    height: 60px;
+    background-color: $light;
+    overflow: hidden;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+}
+
+.star-option {
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+
+    &.is-filled {
+        color: #f0ad4e;
+    }
+}
+
+.btn-submit-review {
+    background-color: $primary;
+    color: #fff;
+
+    &:hover {
+        background-color: #B92A5B;
+        color: #fff;
+    }
+}
+
+.btn-cancel-review {
+    border: 1px solid $secondary;
+    color: $secondary;
+
+    &:hover {
+        background-color: $bloomora-light-pink;
+        color: $secondary;
+    }
 }
 
 // Halaman: Tentang Kami
@@ -643,4 +767,247 @@ $font-guest:   'Poppins', sans-serif;
     .value {
         color: $bloomora-dark;
     }
+}
+
+// Halaman: Ubah Profil Admin
+.profile-title-admin {
+    color: $bloomora-maroon;
+}
+
+.profile-photo-circle-admin {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid $bloomora-maroon;
+}
+
+.profile-photo-placeholder-admin {
+    width: 100px;
+    height: 100px;
+    border: 1px solid $bloomora-maroon;
+}
+
+.profile-photo-label-admin {
+    color: $bloomora-maroon;
+}
+
+// Komponen: Tombol Cancel (abu-abu, dipakai di form Create/Edit admin)
+.btn-cancel-gray {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+
+    &:hover {
+        background-color: #5c636a;
+        border-color: #545b62;
+        color: #fff;
+    }
+}
+
+// Halaman: Data Admin (index)
+.admin-page-title {
+    color: $bloomora-dark;
+}
+
+.btn-create-admin {
+    background-color: $bloomora-maroon;
+    border-color: $bloomora-maroon;
+    color: #fff;
+
+    &:hover {
+        background-color: #7E2230;
+        border-color: #7E2230;
+        color: #fff;
+    }
+}
+
+.action-link-edit {
+    color: #0d6efd;
+}
+
+// Komponen: Tombol Update (biru, dipakai di halaman show admin)
+.btn-edit-blue {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
+
+    &:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+        color: #fff;
+    }
+}
+
+// Halaman: Data Customer
+.customer-page-title {
+    color: $bloomora-dark;
+}
+
+// Halaman: Dashboard
+.dashboard-banner-wrap {
+    position: relative;
+    padding: 14px 30px 26px 6px;
+    margin-bottom: 28px;
+}
+
+.dashboard-banner-bg {
+    position: absolute;
+    top: 20px;
+    left: 14px;
+    right: 20px;
+    bottom: 20px;
+    background: $bloomora-light-pink;
+    border-radius: 14px;
+    transform: rotate(-1.2deg);
+    z-index: 0;
+}
+
+.dashboard-banner-card {
+    position: relative;
+    z-index: 1;
+    background: $light;
+    border-radius: 14px;
+    padding: 1.5rem 1.9rem 1.75rem 1.9rem;
+    box-shadow: 0 12px 24px rgba(74, 63, 63, 0.09);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    overflow: visible;
+}
+
+.dashboard-banner-date {
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: $bloomora-green;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-banner-greeting {
+    font-family: $font-heading;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.65rem;
+    line-height: 1.15;
+    color: $bloomora-dark;
+    margin: 0 0 0.35rem 0;
+}
+
+.dashboard-banner-sub {
+    font-size: 0.9rem;
+    color: $bloomora-dark;
+    opacity: 0.62;
+    margin: 0;
+}
+
+.dashboard-banner-monogram {
+    position: absolute;
+    z-index: 2;
+    right: -6px;
+    bottom: -14px;
+    font-family: $font-heading;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 3.6rem;
+    line-height: 1;
+    color: $primary;
+    opacity: 0.15;
+    pointer-events: none;
+    user-select: none;
+}
+
+.section-head-title {
+    font-family: $font-heading;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: $bloomora-dark;
+}
+
+.section-head-rule {
+    width: 34px;
+    height: 2px;
+    background: $primary;
+    margin-top: 6px;
+}
+
+.dashboard-stat-card {
+    background-color: $bloomora-light-pink;
+}
+
+.dashboard-stat-value {
+    color: $primary;
+}
+
+// Halaman: Order Management (index)
+.order-page-title {
+    color: $bloomora-dark;
+}
+
+.order-nav-pills .nav-link.active {
+    background-color: $primary;
+}
+
+// Halaman: Order Management (form edit)
+.order-info-box {
+    background-color: $light;
+    border: 1px solid $bloomora-light-pink;
+}
+
+// Halaman: Order Management (show)
+.info-detail-link {
+    color: $primary;
+}
+
+.btn-status-order {
+    background-color: #4361ee;
+    color: #fff;
+
+    &:hover {
+        background-color: #3651d4;
+        color: #fff;
+    }
+}
+
+.btn-status-payment {
+    background-color: $primary;
+    color: #fff;
+
+    &:hover {
+        background-color: #B92A5B;
+        color: #fff;
+    }
+}
+
+.btn-status-shipment {
+    background-color: $secondary;
+    color: #fff;
+
+    &:hover {
+        background-color: #a15c70;
+        color: #fff;
+    }
+}
+
+// Halaman: Review Management
+.badge-visible {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-hidden {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.btn-toggle-hide {
+    background-color: #f8d7da;
+    border: none;
+}
+
+.btn-toggle-show {
+    background-color: #d4edda;
+    border: none;
 }

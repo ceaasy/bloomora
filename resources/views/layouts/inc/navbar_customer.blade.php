@@ -2,12 +2,12 @@
     $currentUser = Auth::guard('customer')->user();
 @endphp
 
-<nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #D6336C;">
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm navbar-bloomora">
     <div class="container-fluid">
 
         <a class="navbar-brand fw-bold text-white d-flex align-items-center" href="{{ route('customer.home') }}">
-            <img src="{{ asset('img/logo.jpeg') }}" alt="Bloomora" width="32" height="32" class="rounded-circle me-2"
-                style="object-fit: cover;">
+            <img src="{{ asset('img/logo.jpeg') }}" alt="Bloomora" width="32" height="32"
+                class="rounded-circle me-2 img-cover">
             BLOOMORA
         </a>
 
@@ -45,16 +45,15 @@
             <ul class="navbar-nav ms-auto flex-row align-items-center gap-1">
 
                 <li class="nav-item">
-                    <a class="nav-link position-relative text-white d-flex align-items-center"
-                        href="{{ route('customer.carts.index') }}" style="padding: 0.4rem 0.6rem;">
-                        <span class="fa fa-shopping-cart" style="font-size: 1.3rem;"></span>
+                    <a class="nav-link position-relative text-white d-flex align-items-center cart-link"
+                        href="{{ route('customer.carts.index') }}">
+                        <span class="fa fa-shopping-cart cart-icon"></span>
 
                         @php $cartCount = $currentUser?->carts()->count() ?? 0; @endphp
 
                         @if ($cartCount > 0)
                             <span
-                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                                style="font-size: 0.6rem;">
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
                                 {{ $cartCount }}
                             </span>
                         @endif
@@ -70,8 +69,8 @@
                         <img src="{{ $currentUser?->profile_photo
                             ? asset('storage/' . $currentUser->profile_photo)
                             : asset('images/default-avatar.png') }}"
-                            alt="Foto Profil" class="rounded-circle me-2 border border-white" width="32"
-                            height="32" style="object-fit: cover;">
+                            alt="Foto Profil" class="rounded-circle me-2 border border-white img-cover" width="32"
+                            height="32">
 
                         {{ $currentUser?->name }}
 

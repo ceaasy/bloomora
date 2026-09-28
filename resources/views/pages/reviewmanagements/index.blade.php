@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0" style="color: #4A3F3F;">Daftar Ulasan</h1>
+        <h1 class="h3 mb-0 admin-page-title">Daftar Ulasan</h1>
     </div>
 
     <div class="card border-0 shadow-sm">
@@ -46,9 +46,9 @@
                             </td>
                             <td>
                                 @if ($review->is_visible)
-                                    <span class="badge" style="background-color: #d4edda; color: #155724;">Visible</span>
+                                    <span class="badge badge-visible">Visible</span>
                                 @else
-                                    <span class="badge" style="background-color: #f8d7da; color: #721c24;">Hidden</span>
+                                    <span class="badge badge-hidden">Hidden</span>
                                 @endif
                             </td>
                             <td>
@@ -61,8 +61,8 @@
                                     class="d-inline">
                                     @csrf
                                     @method('PATCH')
-                                    <button type="submit" class="btn btn-sm"
-                                        style="background-color: {{ $review->is_visible ? '#f8d7da' : '#d4edda' }}; border: none;">
+                                    <button type="submit"
+                                        class="btn btn-sm {{ $review->is_visible ? 'btn-toggle-hide' : 'btn-toggle-show' }}">
                                         {{ $review->is_visible ? 'Sembunyikan' : 'Tampilkan' }}
                                     </button>
                                 </form>
@@ -75,16 +75,3 @@
     </div>
 
 @endsection
-
-@push('scripts')
-    <script type="text/javascript">
-        @if (Session::has('success'))
-            Swal.fire({
-                title: "Berhasil!",
-                text: "{{ Session::get('success') }}",
-                icon: "success",
-                draggable: true
-            });
-        @endif
-    </script>
-@endpush

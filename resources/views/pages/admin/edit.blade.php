@@ -85,8 +85,7 @@
                                 Save
                             </button>
 
-                            <a href="{{ route('admin.admin.index') }}" class="btn text-white"
-                                style="background-color: #6c757d; border-color: #6c757d;">
+                            <a href="{{ route('admin.admin.index') }}" class="btn text-white btn-cancel-gray">
                                 <span class="fa fa-times-circle"></span>
                                 Cancle
                             </a>

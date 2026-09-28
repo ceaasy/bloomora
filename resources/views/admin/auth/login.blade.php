@@ -4,6 +4,17 @@
 @section('page_title', 'Login Admin')
 
 @section('content')
+    <div class="text-center mb-4">
+        <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3 login-icon-circle-admin">
+            <span class="fa fa-lock"></span>
+        </div>
+        <h4 class="fw-bold mb-1 login-welcome-title-admin">
+            Selamat Datang Admin!!
+        </h4>
+        <p class="text-muted mb-0" style="font-size: 0.9rem;">
+            Masuk untuk mengelola toko Bloomora
+        </p>
+    </div>
     <div class="guest-card card-maroon mx-auto">
 
         <form method="POST" action="{{ route('admin.login') }}">

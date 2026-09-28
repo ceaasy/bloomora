@@ -2,7 +2,7 @@
     $currentUser = Auth::guard('web')->user();
 @endphp
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm sticky-top">
     <div class="container-fluid">
 
         <span class="navbar-text ms-3 fw-semibold">
@@ -19,8 +19,7 @@
                     <img src="{{ $currentUser?->profile_photo
                         ? asset('storage/' . $currentUser->profile_photo)
                         : asset('images/default-avatar.png') }}"
-                        alt="Foto Profil" class="rounded-circle me-2" width="32" height="32"
-                        style="object-fit: cover;">
+                        alt="Foto Profil" class="rounded-circle me-2 img-cover" width="32" height="32">
 
                     {{ $currentUser?->name }}
 

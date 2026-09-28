@@ -84,13 +84,12 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="{{ route('admin.products.index') }}" class="btn text-white"
-                        style="background-color: #6c757d; border-color: #6c757d;">
+                    <a href="{{ route('admin.products.index') }}" class="btn text-white btn-cancel-gray">
                         <span class="fa fa-arrow-left"></span>
                         Back
                     </a>
-                    <a href="{{ route('admin.products.edit', encrypt($product->id)) }}" class="btn text-white"
-                        style="background-color: #0d6efd; border-color: #0d6efd;">
+                    <a href="{{ route('admin.products.edit', encrypt($product->id)) }}"
+                        class="btn text-white btn-edit-blue">
                         <span class="fa fa-edit"></span> Update
                     </a>
                     <a href="#"

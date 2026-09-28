@@ -16,28 +16,28 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="p-4 rounded-4 mb-4" style="background-color: #FFFAF7; border: 1px solid #FBE3EC;">
+                    <div class="p-4 rounded-4 mb-4 order-info-box">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <p class="small text-muted mb-1">Order ID</p>
-                                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">
+                                <div class="p-2 rounded-3 info-value-box">
                                     #BLM-{{ str_pad($payment->order->id, 4, '0', STR_PAD_LEFT) }}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <p class="small text-muted mb-1">Customer</p>
-                                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">
+                                <div class="p-2 rounded-3 info-value-box">
                                     {{ $payment->order->customer->name }}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <p class="small text-muted mb-1">Payment Method</p>
-                                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">{{ $payment->payment_method }}
+                                <div class="p-2 rounded-3 info-value-box">{{ $payment->payment_method }}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <p class="small text-muted mb-1">Amount</p>
-                                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">
+                                <div class="p-2 rounded-3 info-value-box">
                                     Rp{{ number_format($payment->amount, 0, ',', '.') }}</div>
                             </div>
                             <div class="col-md-6">
@@ -47,7 +47,7 @@
                                     class="form-control @error('payment_date') is-invalid @enderror">
 
                                 @error('payment_date')
-                                    <div class="invalid-feedack d-block">
+                                    <div class="invalid-feedback d-block">
                                         <span>{{ $message }}</span>
                                     </div>
                                 @enderror
@@ -71,8 +71,8 @@
                                     Save
                                 </button>
 
-                                <a href="{{ route('admin.paymentmanagements.index') }}" class="btn text-white"
-                                    style="background-color: #6c757d; border-color: #6c757d;">
+                                <a href="{{ route('admin.paymentmanagements.index') }}"
+                                    class="btn text-white btn-cancel-gray">
                                     <span class="fa fa-times-circle"></span>
                                     Cancle
                                 </a>

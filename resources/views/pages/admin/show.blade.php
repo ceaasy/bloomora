@@ -12,7 +12,6 @@
         <div class="col-md-6">
             <div class="card">
 
-
                 <div class="card-body">
                     <table class="table table-borderless">
                         <tr>
@@ -26,6 +25,7 @@
                                     alt="Foto {{ $user->name }}" width="80" height="80" class="rounded-circle"
                                     style="object-fit: cover;">
                             </td>
+                        </tr>
                         <tr>
                             <th width="180">Name</th>
                             <td>{{ $user->name }}</td>
@@ -47,13 +47,11 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="{{ route('admin.admin.index') }}" class="btn text-white"
-                        style="background-color: #6c757d; border-color: #6c757d;">
+                    <a href="{{ route('admin.admin.index') }}" class="btn text-white btn-cancel-gray">
                         <span class="fa fa-arrow-left"></span>
                         Back
                     </a>
-                    <a href="{{ route('admin.admin.edit', encrypt($user->id)) }}" class="btn text-white"
-                        style="background-color: #0d6efd; border-color: #0d6efd;">
+                    <a href="{{ route('admin.admin.edit', encrypt($user->id)) }}" class="btn text-white btn-edit-blue">
                         <span class="fa fa-edit"></span> Update
                     </a>
                     <a href="#" onclick="handleDestroy('{{ route('admin.admin.destroy', encrypt($user->id)) }}')"

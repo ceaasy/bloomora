@@ -8,7 +8,7 @@
         <div class="col-md-6">
             <div class="card card-bloomora">
                 <div class="card-body p-4">
-                    <h5 class="card-title text-center mb-4" style="color:#9C2B3A;">UBAH PROFIL</h5>
+                    <h5 class="card-title text-center mb-4 profile-title-admin">UBAH PROFIL</h5>
 
                     <form method="POST" action="{{ route('admin.profile.update') }}" enctype="multipart/form-data">
                         @csrf
@@ -18,15 +18,14 @@
                             <label for="profile_photo" style="cursor:pointer;">
                                 @if ($admin->profile_photo)
                                     <img src="{{ asset('storage/' . $admin->profile_photo) }}" alt="Foto Profil"
-                                        class="rounded-circle"
-                                        style="width:100px;height:100px;object-fit:cover;border:1px solid #9C2B3A;">
+                                        class="rounded-circle profile-photo-circle-admin">
                                 @else
-                                    <div class="rounded-circle bg-light d-inline-flex align-items-center justify-content-center"
-                                        style="width:100px;height:100px;border:1px solid #9C2B3A;">
+                                    <div
+                                        class="rounded-circle bg-light d-inline-flex align-items-center justify-content-center profile-photo-placeholder-admin">
                                         <i class="bi bi-person fs-1 text-secondary"></i>
                                     </div>
                                 @endif
-                                <div class="small mt-1" style="color:#9C2B3A;">Ubah foto</div>
+                                <div class="small mt-1 profile-photo-label-admin">Ubah foto</div>
                             </label>
                             <input type="file" id="profile_photo" name="profile_photo" accept="image/*" class="d-none">
                             @error('profile_photo')
@@ -105,9 +104,7 @@
                 } else {
                     const newImg = document.createElement('img');
                     newImg.src = ev.target.result;
-                    newImg.className = 'rounded-circle';
-                    newImg.style.cssText =
-                        'width:100px;height:100px;object-fit:cover;border:1px solid #9C2B3A;';
+                    newImg.className = 'rounded-circle profile-photo-circle-admin';
                     img.replaceWith(newImg);
                 }
             };

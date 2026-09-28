@@ -16,29 +16,19 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="p-4 rounded-4 mb-4" style="background-color: #FFFAF7; border: 1px solid #FBE3EC;">
+                    <div class="p-4 rounded-4 mb-4 order-info-box">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <p class="small text-muted mb-1">Order ID</p>
-                                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">
+                                <div class="p-2 rounded-3 info-value-box">
                                     #BLM-{{ str_pad($shipment->order->id, 4, '0', STR_PAD_LEFT) }}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <p class="small text-muted mb-1">Customer</p>
-                                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">
+                                <div class="p-2 rounded-3 info-value-box">
                                     {{ $shipment->order->customer->name }}
                                 </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="tracking_number" class="form-label">Tracking Number</label>
-                                <input type="text" name="tracking_number" id="tracking_number"
-                                    value="{{ old('tracking_number', $shipment->tracking_number) }}"
-                                    class="form-control @error('tracking_number') is-invalid @enderror">
-                                @error('tracking_number')
-                                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             <div class="col-12">
@@ -84,8 +74,8 @@
                                     <span class="fa fa-save"></span>
                                     Save
                                 </button>
-                                <a href="{{ route('admin.shipmentmanagements.index') }}" class="btn text-white"
-                                    style="background-color: #6c757d; border-color: #6c757d;">
+                                <a href="{{ route('admin.shipmentmanagements.index') }}"
+                                    class="btn text-white btn-cancel-gray">
                                     <span class="fa fa-times-circle"></span>
                                     Cancel
                                 </a>

@@ -8,54 +8,51 @@
         <h1 class="h3 mb-0 text-gray-800">Detail - Payment page</h1>
     </div>
 
-    <div class="p-4 rounded-4 mb-4" style="background-color: #FFFAF7; border: 1px solid #FBE3EC;">
+    <div class="p-4 rounded-4 mb-4 info-box">
         <div class="row g-3">
             <div class="col-md-6">
                 <p class="small text-muted mb-1">Order ID</p>
-                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">
+                <div class="p-2 rounded-3 info-value-box">
                     #BLM-{{ str_pad($payment->order->id, 4, '0', STR_PAD_LEFT) }}
                 </div>
             </div>
             <div class="col-md-6">
                 <p class="small text-muted mb-1">Customer</p>
-                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">{{ $payment->order->customer->name }}</div>
+                <div class="p-2 rounded-3 info-value-box">{{ $payment->order->customer->name }}</div>
             </div>
             <div class="col-md-6">
                 <p class="small text-muted mb-1">Payment Method</p>
-                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">{{ $payment->payment_method }}</div>
+                <div class="p-2 rounded-3 info-value-box">{{ $payment->payment_method }}</div>
             </div>
             <div class="col-md-6">
                 <p class="small text-muted mb-1">Amount</p>
-                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">
+                <div class="p-2 rounded-3 info-value-box">
                     Rp{{ number_format($payment->amount, 0, ',', '.') }}</div>
             </div>
             <div class="col-md-6">
                 <p class="small text-muted mb-1">Payment Date</p>
-                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">
+                <div class="p-2 rounded-3 info-value-box">
                     {{ $payment->payment_date ? $payment->payment_date->format('d-m-Y') : '-' }}</div>
             </div>
             <div class="col-md-6">
                 <p class="small text-muted mb-1">Status</p>
-                <div class="p-2 rounded-3" style="background-color: #FBE3EC;">{{ $payment->status }}</div>
+                <div class="p-2 rounded-3 info-value-box">{{ $payment->status }}</div>
             </div>
         </div>
     </div>
 
     <div class="d-flex flex-wrap gap-2">
-        <a href="{{ route('admin.ordermanagements.edit', $payment->order->id) }}" class="btn"
-            style="background-color: #4361ee; color: white;">
+        <a href="{{ route('admin.ordermanagements.edit', $payment->order->id) }}" class="btn btn-status-order">
             <span class="fa fa-box"></span> Update Status Pesanan
         </a>
-        <a href="{{ route('admin.paymentmanagements.edit', $payment->id) }}" class="btn"
-            style="background-color: #D6336C; color: white;">
+        <a href="{{ route('admin.paymentmanagements.edit', $payment->id) }}" class="btn btn-status-payment">
             <span class="fa fa-money"></span> Update Status Pembayaran
         </a>
-        <a href="{{ route('admin.shipmentmanagements.edit', $payment->order->shipment->id) }}" class="btn"
-            style="background-color: #B96F84; color: white;">
+        <a href="{{ route('admin.shipmentmanagements.edit', $payment->order->shipment->id) }}"
+            class="btn btn-status-shipment">
             <span class="fa fa-truck"></span> Update Status Pengiriman
         </a>
-        <a href="{{ route('admin.ordermanagements.index') }}" class="btn text-white"
-            style="background-color: #6c757d; border-color: #6c757d;">
+        <a href="{{ route('admin.ordermanagements.index') }}" class="btn text-white btn-cancel-gray">
             <span class="fa fa-arrow-left"></span> Back
         </a>
     </div>

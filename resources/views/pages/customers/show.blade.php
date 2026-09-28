@@ -25,6 +25,7 @@
                                     alt="Foto {{ $customer->name }}" width="80" height="80" class="rounded-circle"
                                     style="object-fit: cover;">
                             </td>
+                        </tr>
                         <tr>
                             <th width="180">Name</th>
                             <td>{{ $customer->name }}</td>
@@ -54,8 +55,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="{{ route('admin.customers.index') }}" class="btn text-white"
-                        style="background-color: #6c757d; border-color: #6c757d;">
+                    <a href="{{ route('admin.customers.index') }}" class="btn text-white btn-cancel-gray">
                         <span class="fa fa-arrow-left"></span>
                         Back
                     </a>
