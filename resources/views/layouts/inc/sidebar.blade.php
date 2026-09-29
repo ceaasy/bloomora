@@ -1,7 +1,7 @@
 <div class="d-flex flex-column sidebar-admin">
 
     <div class="p-3 d-flex align-items-center shadow-sm">
-        <img src="{{ asset('img/logo.jpeg') }}" alt="Bloomora" width="32" height="32"
+        <img src="{{ asset('img/logo2.jpeg') }}" alt="Bloomora" width="32" height="32"
             class="rounded-circle me-2 img-cover">
         <span class="fw-bold sidebar-brand-text">BLOOMORA</span>
 

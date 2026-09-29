@@ -7,6 +7,7 @@
     <title>@yield('title', 'Bloomora Admin')</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('vendor/datatables/datatables.min.css') }}">
 
     @vite(['resources/sass/app.scss'])
     @stack('styles')
@@ -36,6 +37,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('vendor/datatables/datatables.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.datatable').DataTable({
+                language: {
+                    search: "Search:",
+                    lengthMenu: "Show _MENU_ entries",
+                    info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                    infoEmpty: "No data available",
+                    zeroRecords: "No matching records found",
+                    paginate: {
+                        previous: "<",
+                        next: ">"
+                    }
+                }
+            });
+        });
+    </script>
 
     @stack('scripts')
 

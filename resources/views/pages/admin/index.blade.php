@@ -13,7 +13,7 @@
 
     <div class="card border-0 shadow-sm">
         <div class="card-body">
-            <table class="table table-bordered table-hover align-middle">
+            <table class="table table-bordered table-hover align-middle datatable">
                 <thead>
                     <tr>
                         <th>No</th>

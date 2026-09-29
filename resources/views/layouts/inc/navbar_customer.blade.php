@@ -6,7 +6,7 @@
     <div class="container-fluid">
 
         <a class="navbar-brand fw-bold text-white d-flex align-items-center" href="{{ route('customer.home') }}">
-            <img src="{{ asset('img/logo.jpeg') }}" alt="Bloomora" width="32" height="32"
+            <img src="{{ asset('img/logo2.jpeg') }}" alt="Bloomora" width="32" height="32"
                 class="rounded-circle me-2 img-cover">
             BLOOMORA
         </a>
