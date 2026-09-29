@@ -6,7 +6,7 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card card-bloomora">
+            <div class="card">
                 <div class="card-body p-4">
                     <h5 class="card-title text-center mb-4 profile-title-admin">UBAH PROFIL</h5>
 

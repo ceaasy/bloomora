@@ -78,7 +78,7 @@
             <button type="submit" class="btn btn-bloomora-pink text-white w-100">Daftar</button>
         </form>
 
-        <p class="guest-footer-link text-center mt-3 mb-0 position-relative">
+        <p class="text-center mt-3 mb-0 position-relative">
             Sudah Punya Akun? <a href="{{ route('customer.login') }}" class="link-pink text-decoration-none">Login</a>
         </p>
     </div>

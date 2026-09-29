@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Detail - Order page</h1>
+        <h1 class="h3 mb-0 admin-page-title">Detail - Order page</h1>
     </div>
 
     <div class="p-4 rounded-4 mb-4 info-box">

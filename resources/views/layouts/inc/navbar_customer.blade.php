@@ -2,7 +2,7 @@
     $currentUser = Auth::guard('customer')->user();
 @endphp
 
-<nav class="navbar navbar-expand-lg navbar-dark shadow-sm navbar-bloomora">
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm navbar-bloomora sticky-top">
     <div class="container-fluid">
 
         <a class="navbar-brand fw-bold text-white d-flex align-items-center" href="{{ route('customer.home') }}">

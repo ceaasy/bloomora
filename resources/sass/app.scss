@@ -161,10 +161,17 @@ $font-guest:   'Poppins', sans-serif;
 .btn-bloomora-maroon {
     background-color: $bloomora-maroon;
     border-color: $bloomora-maroon;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
         background-color: #7E2230;
         border-color: #7E2230;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(156, 43, 58, 0.35);
+    }
+
+    &:active {
+        transform: translateY(-1px);
     }
 }
 

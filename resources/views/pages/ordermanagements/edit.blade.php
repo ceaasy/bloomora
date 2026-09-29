@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Update - Order page</h1>
+        <h1 class="h3 mb-0 admin-page-title">Update - Order page</h1>
     </div>
 
     @include('pages.partials.detail_pesanan', ['order' => $order])

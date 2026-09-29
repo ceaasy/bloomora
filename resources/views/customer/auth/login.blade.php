@@ -50,7 +50,7 @@
             <button type="submit" class="btn btn-bloomora-pink text-white w-100">Login</button>
         </form>
 
-        <p class="guest-footer-link text-center mt-3 mb-0 position-relative">
+        <p class="text-center mt-3 mb-0 position-relative">
             Belum Punya Akun? <a href="{{ route('customer.register') }}" class="link-pink text-decoration-none">Daftar
                 Sini</a>
         </p>
