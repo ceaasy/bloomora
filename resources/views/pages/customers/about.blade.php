@@ -4,8 +4,8 @@
 
 @section('content')
     <div class="mb-4 text-center">
-        <img src="{{ asset('img/about.jpeg') }}" alt="Produk Bloomora" class="rounded-4 shadow-sm"
-            style="width: 75%; height: auto;">
+        <img src="{{ asset('img/banner.png') }}" alt="Produk Bloomora" class="rounded-4 shadow-sm"
+            style="width: 95%; height: auto;">
     </div>
 
     <div class="text-center mb-4">
@@ -46,7 +46,8 @@
                 <span class="small fw-semibold about-cta-text">
                     Yuk, Temukan Hadiah dan Kreasi Spesial Untuk Orang Tersayang
                 </span>
-                <a href="#" class="btn btn-sm text-nowrap ms-2 rounded-pill btn-about-cta">
+                <a href="{{ route('customer.catalog.index') }}"
+                    class="btn btn-sm text-nowrap ms-2 rounded-pill btn-about-cta">
                     Lihat Produk
                 </a>
             </div>
@@ -106,7 +107,7 @@
             <div class="rounded-4 shadow-sm p-3 h-100 contact-card">
                 <span class="fa fa-phone fa-lg mb-2 d-block icon"></span>
                 <small class="d-block text-muted">Telepon</small>
-                <span class="fw-semibold value">08xxxxxxxxxx</span>
+                <span class="fw-semibold value">{{ config('services.whatsapp.number') }}</span>
             </div>
         </div>
         <div class="col-6 col-md-3">

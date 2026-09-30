@@ -227,6 +227,415 @@ $font-guest:   'Poppins', sans-serif;
     font-family: $font-heading;
 }
 
+// Halaman: Home
+.bloomora-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 470px;
+    padding: 55px 60px;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.9) 0, transparent 22%),
+        linear-gradient(120deg, #fff9f7 0%, #fbe4ec 55%, #f7d5e1 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 530px;
+}
+
+.hero-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    color: #b4275a;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    span {
+        display: block;
+        width: 32px;
+        height: 1px;
+        background: #b4275a;
+    }
+}
+
+.hero-title {
+    margin: 0 0 20px;
+    color: #3f3033;
+    font-family: $font-heading;
+    font-size: clamp(2.7rem, 5vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+
+    span {
+        display: block;
+        color: #c33c68;
+        font-style: italic;
+        font-weight: 500;
+    }
+}
+
+.hero-description {
+    max-width: 470px;
+    margin-bottom: 28px;
+    color: #67585b;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 23px;
+    border-radius: 50px;
+    color: #fff;
+    background: #c33c68;
+    box-shadow: 0 10px 24px rgba(195, 60, 104, 0.28);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+
+    &:hover {
+        color: #fff;
+        background: #ad2f58;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(195, 60, 104, 0.34);
+    }
+}
+
+.hero-note {
+    color: #806e72;
+    font-size: 0.78rem;
+
+    span {
+        margin-right: 5px;
+        color: #c33c68;
+    }
+}
+
+.hero-mini-info {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 38px;
+
+    > div:not(.hero-divider) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 5px;
+    }
+
+    strong {
+        color: #403336;
+        font-size: 0.95rem;
+    }
+
+    .fa-star {
+        color: #e3a23b;
+        font-size: 0.7rem;
+    }
+
+    small {
+        width: 100%;
+        color: #8b7c80;
+        font-size: 0.67rem;
+    }
+}
+
+.hero-divider {
+    width: 1px;
+    height: 35px;
+    background: rgba(99, 69, 78, 0.18);
+}
+
+// Image area
+.hero-image-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 430px;
+}
+
+.hero-circle {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+}
+
+// Foto bertumpuk
+.hero-image-stack {
+    position: relative;
+    width: min(340px, 80%);
+    aspect-ratio: 0.9 / 1;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.stack-card {
+    position: absolute;
+    inset: 0;
+    padding: 9px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 25px 50px rgba(117, 56, 76, 0.2);
+    transition:
+        transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 0.5s ease;
+
+    .hero-main-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 18px;
+    }
+
+    &.card-1 {
+        z-index: 4;
+        transform: translate(0, 0) rotate(2deg);
+    }
+
+    &.card-2 {
+        z-index: 3;
+        transform: translate(13px, -10px) rotate(5deg) scale(0.97);
+    }
+
+    &.card-3 {
+        z-index: 2;
+        transform: translate(25px, -18px) rotate(8deg) scale(0.94);
+    }
+
+    &.card-4 {
+        z-index: 1;
+        transform: translate(36px, -25px) rotate(11deg) scale(0.91);
+    }
+
+    &.card-moving {
+        transform: translate(115%, -30px) rotate(18deg) !important;
+        opacity: 0;
+    }
+}
+
+// Caption
+.hero-image-caption {
+    position: absolute;
+    left: 50%;
+    bottom: -18px;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: max-content;
+    max-width: 90%;
+    padding: 9px 15px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 8px 22px rgba(75, 44, 54, 0.13);
+    transform: translateX(-50%);
+    white-space: nowrap;
+
+    > span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        color: #c33c68;
+        background: #fbe4ec;
+    }
+
+    strong,
+    small {
+        display: block;
+    }
+
+    strong {
+        color: #49383d;
+        font-size: 0.72rem;
+        font-weight: 700;
+    }
+
+    small {
+        margin-top: 1px;
+        color: #958589;
+        font-size: 0.6rem;
+    }
+}
+
+// Floating
+.hero-floating {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(76, 48, 59, 0.15);
+}
+
+.hero-floating-top {
+    top: 28px;
+    right: 5%;
+    width: 48px;
+    height: 48px;
+    color: #c33c68;
+    font-size: 0.95rem;
+}
+
+.hero-floating-bottom {
+    right: 0;
+    bottom: 22px;
+    gap: 9px;
+    padding: 10px 14px;
+    border-radius: 14px;
+
+    > span {
+        color: #4c6b4f;
+    }
+
+    strong,
+    small {
+        display: block;
+    }
+
+    strong {
+        color: #857378;
+        font-size: 0.6rem;
+        font-weight: 500;
+    }
+
+    small {
+        color: #4c6b4f;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+}
+
+// Decoration
+.hero-decoration {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-decoration-one {
+    top: -80px;
+    left: -80px;
+    width: 190px;
+    height: 190px;
+    border: 1px solid rgba(195, 60, 104, 0.12);
+}
+
+.hero-decoration-two {
+    right: 35%;
+    bottom: -100px;
+    width: 190px;
+    height: 190px;
+    border: 1px solid rgba(76, 107, 79, 0.12);
+}
+
+// Features strip di bawah hero
+.home-features-box {
+    background-color: #fff;
+    border: 1px solid #F7D3E1;
+}
+
+.home-feature-icon {
+    width: 56px;
+    height: 56px;
+
+    &.is-pink {
+        background-color: $bloomora-light-pink;
+
+        .fa {
+            color: $primary;
+            font-size: 1.3rem;
+        }
+    }
+
+    &.is-green {
+        background-color: #EAF0EA;
+
+        .fa {
+            color: $bloomora-green;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.home-feature-label {
+    color: $bloomora-dark;
+}
+
+// Responsive
+@media (max-width: 991px) {
+    .bloomora-hero {
+        padding: 45px 30px;
+    }
+
+    .hero-image-area {
+        min-height: 390px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 575px) {
+    .bloomora-hero {
+        padding: 35px 22px;
+        border-radius: 24px;
+    }
+
+    .hero-title {
+        font-size: 2.7rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .hero-mini-info {
+        gap: 14px;
+        margin-top: 28px;
+    }
+
+    .hero-image-area {
+        min-height: 350px;
+    }
+
+    .hero-circle {
+        width: 270px;
+        height: 270px;
+    }
+
+    .hero-image-stack {
+        width: 82%;
+    }
+
+    .hero-floating-top {
+        right: 2%;
+    }
+
+    .hero-floating-bottom {
+        right: -4px;
+    }
+
+    .hero-image-caption {
+        bottom: -12px;
+        padding: 8px 12px;
+    }
+}
 // Halaman: Katalog Produk
 .catalog-eyebrow {
     font-size: 0.7rem;
@@ -709,6 +1118,7 @@ $font-guest:   'Poppins', sans-serif;
 
 .about-heading {
     color: $bloomora-dark;
+    font-family: $font-heading;
 }
 
 .about-intro-box {
