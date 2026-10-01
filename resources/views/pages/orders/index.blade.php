@@ -5,7 +5,10 @@
 @section('content')
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 riwayat-heading">Riwayat Pesanan anda</h1>
+        <div class="riwayat-heading-wrap">
+            <h1 class="h3 mb-1 riwayat-heading">Riwayat Pesanan Anda</h1>
+            <div class="riwayat-heading-accent"></div>
+        </div>
     </div>
 
     @if ($orders->isEmpty())

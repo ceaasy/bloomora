@@ -39,4 +39,6 @@ return [
     'number' => env('WHATSAPP_NUMBER'),
     ],
 
+    'main_admin_email' => env('MAIN_ADMIN_EMAIL'),
+
 ];

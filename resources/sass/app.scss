@@ -936,12 +936,53 @@ $font-guest:   'Poppins', sans-serif;
         color: #fff;
     }
 }
-
-// Halaman: Riwayat Pesanan
-.riwayat-heading {
-    color: #c57b7b;
+.cart-heading-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 28px;
 }
 
+.cart-heading {
+    margin: 0;
+    color: #49383d;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+.cart-heading-line {
+    width: 45px;
+    height: 1px;
+    background: #d88ca0;
+    opacity: 0.7;
+}
+
+.cart-heading::after {
+    color: #c33c68;
+    font-size: 1.1rem;
+}
+// Halaman: Riwayat Pesanan
+.riwayat-heading-wrap {
+    display: inline-block;
+}
+
+.riwayat-heading {
+    color: #49383d;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+.riwayat-heading-accent {
+    width: 55px;
+    height: 3px;
+    margin-top: 6px;
+    border-radius: 10px;
+    background: #d88ca0;
+}
 .status-badge {
     background-color: $bloomora-light-pink;
     color: $secondary;
@@ -953,7 +994,10 @@ $font-guest:   'Poppins', sans-serif;
 
 // Halaman: Detail Pesanan (class info-box dipakai halaman admin)
 .detail-heading {
-    color: #450404;
+    color: #49383d;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: -0.3px;
 }
 
 .step-connector {

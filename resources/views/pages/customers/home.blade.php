@@ -104,7 +104,7 @@
 
                         <div>
                             <strong>Mulai dari</strong>
-                            <small>Rp60rb</small>
+                            <small>Rp40rb</small>
                         </div>
                     </div>
 

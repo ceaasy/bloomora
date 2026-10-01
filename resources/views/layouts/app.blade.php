@@ -71,6 +71,18 @@
         </script>
     @endif
 
+    @if (Session::has('error'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    title: "Gagal!",
+                    text: "{{ Session::get('error') }}",
+                    icon: "error"
+                });
+            });
+        </script>
+    @endif
+
 </body>
 
 </html>

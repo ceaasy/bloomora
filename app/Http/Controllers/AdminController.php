@@ -132,9 +132,14 @@ class AdminController extends Controller
     public function destroy(string $id)
     {
         $user = User::findOrFail(decrypt($id));
+
+        if ($user->email === config('services.main_admin_email')) {
+            return redirect()->route('admin.admin.index')
+                ->with('error', 'Admin utama tidak dapat dihapus.');
+        }
+
         $user->delete();
 
-        return redirect()->route('admin.admin.index')
-            ->with('success', 'Admin deleted successfully.');
+        return redirect()->route('admin.admin.index')->with('success', 'Employee deleted successfully.');
     }
 }

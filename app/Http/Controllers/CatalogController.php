@@ -18,7 +18,7 @@ class CatalogController extends Controller
             $query->where('category', $request->category);
         }
 
-        $products = $query->latest()->paginate(12)->withQueryString();
+        $products = $query->latest()->paginate(8)->withQueryString();
 
         return view('pages.catalog.index', compact('products'));
     }

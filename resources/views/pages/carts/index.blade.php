@@ -5,7 +5,11 @@
 @section('content')
     <div class="container py-4">
 
-        <h3 class="fw-bold mb-4 cart-heading">Keranjang Saya</h3>
+        <div class="cart-heading-wrap">
+            <span class="cart-heading-line"></span>
+            <h3 class="cart-heading">Keranjang Saya</h3>
+            <span class="cart-heading-line"></span>
+        </div>
 
         @if ($carts->isEmpty())
             <p class="text-muted">Keranjang kamu masih kosong.</p>
