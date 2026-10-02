@@ -52,7 +52,7 @@ class CheckoutController extends Controller
             'recipient_phone' => 'required|string|max:25',
             'pickup_method' => 'required|in:Ambil di Toko,Dikirim',
             'shipping_address' => 'required_if:pickup_method,Dikirim|nullable|string',
-            'delivery_date' => 'required|date',
+            'delivery_date' => 'required|date|after_or_equal:' . now()->addDays(3)->format('Y-m-d'),
             'order_notes' => 'nullable|string',
             'greeting_card' => 'nullable|string',
             'reference_photo' => 'nullable|image|max:2048',
@@ -63,6 +63,7 @@ class CheckoutController extends Controller
             'shipping_address.required_if' => 'Alamat pengiriman wajib diisi kalau metode dikirim.',
             'delivery_date.required' => 'Tanggal pengiriman/pengambilan wajib diisi.',
             'delivery_date.date' => 'Format tanggal tidak valid.',
+            'delivery_date.after_or_equal' => 'Tanggal pengiriman/pengambilan minimal H-3 dari hari ini.',
             'reference_photo.image' => 'File yang diupload harus berupa gambar.',
             'reference_photo.max' => 'Ukuran foto maksimal 2MB.',
         ]);

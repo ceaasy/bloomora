@@ -678,7 +678,41 @@ $font-guest:   'Poppins', sans-serif;
         border: none;
     }
 
-    .search-icon {
+    .search-actions {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+    }
+
+    .search-clear {
+        color: #9c8b8e;
+        font-size: 1.1rem;
+        text-decoration: none;
+    }
+
+    .search-clear:hover,
+    .search-clear:focus {
+        color: $primary;
+        text-decoration: none;
+    }
+    .search-submit {
+        background: transparent;
+        border: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-clear {
+        color: #9c8b8e;
+        font-size: 1.1rem;
+    }
+
+    .search-submit {
         color: $primary;
     }
 }

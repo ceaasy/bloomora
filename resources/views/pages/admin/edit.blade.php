@@ -22,7 +22,7 @@
 
                             <div class="d-flex align-items-center gap-3 mb-2">
                                 <img id="photo-preview"
-                                    src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : asset('images/default-avatar.png') }}"
+                                    src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : asset('img/admin.jpg') }}"
                                     alt="Preview" width="80" height="80" class="rounded-circle border"
                                     style="object-fit: cover;">
                             </div>

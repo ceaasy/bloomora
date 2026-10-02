@@ -19,7 +19,7 @@
                             <label for="profile_photo" class="form-label">Profile Photo</label>
 
                             <div class="d-flex align-items-center gap-3 mb-2">
-                                <img id="photo-preview" src="{{ asset('img/default.png') }}" alt="Preview" width="80"
+                                <img id="photo-preview" src="{{ asset('img/admin.jpg') }}" alt="Preview" width="80"
                                     height="80" class="rounded-circle border" style="object-fit: cover;">
                             </div>
 

@@ -10,6 +10,17 @@
         </span>
 
         <ul class="navbar-nav ms-auto">
+            {{-- NOTIFIKASI PESANAN  --}}
+            <li class="nav-item me-3">
+                <a href="{{ route('admin.ordermanagements.index') }}" id="orderNotificationLink"
+                    class="nav-link position-relative notification-bell" title="Pesanan Baru">
+                    <span class="fa fa-bell"></span>
+
+                    <span id="orderNotificationBadge" class="position-absolute badge rounded-pill bg-danger d-none"
+                        style="top: 2px; right: -6px;">
+                    </span>
+                </a>
+            </li>
 
             <li class="nav-item dropdown">
 
@@ -18,7 +29,7 @@
 
                     <img src="{{ $currentUser?->profile_photo
                         ? asset('storage/' . $currentUser->profile_photo)
-                        : asset('images/default-avatar.png') }}"
+                        : asset('img/admin.jpg') }}"
                         alt="Foto Profil" class="rounded-circle me-2 img-cover" width="32" height="32">
 
                     {{ $currentUser?->name }}

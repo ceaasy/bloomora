@@ -27,10 +27,18 @@
             <div class="search-box">
                 <input type="text" name="keyword" value="{{ request('keyword') }}"
                     class="form-control ps-4 pe-5 rounded-pill" placeholder="Cari Produk">
-                <button type="submit"
-                    class="btn position-absolute top-50 end-0 translate-middle-y p-0 me-3 border-0 bg-transparent">
-                    <span class="fa fa-search search-icon"></span>
-                </button>
+                <div class="search-actions">
+                    @if (request('keyword'))
+                        <a href="{{ route('customer.catalog.index', request()->except('keyword')) }}" class="search-clear"
+                            title="Hapus pencarian">
+                            <span class="fa fa-times"></span>
+                        </a>
+                    @else
+                        <button type="submit" class="search-submit" title="Cari">
+                            <span class="fa fa-search"></span>
+                        </button>
+                    @endif
+                </div>
             </div>
 
             <a href="{{ route('customer.catalog.index', array_merge(request()->except('category'), [])) }}"

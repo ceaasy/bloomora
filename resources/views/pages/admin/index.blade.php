@@ -30,7 +30,7 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
-                                <img src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : asset('images/default-avatar.png') }}"
+                                <img src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : asset('img/admin.jpg') }}"
                                     alt="Foto {{ $user->name }}" width="40" height="40" class="rounded-circle"
                                     style="object-fit: cover;">
                             </td>

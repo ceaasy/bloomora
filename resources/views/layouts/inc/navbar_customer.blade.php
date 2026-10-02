@@ -68,7 +68,7 @@
 
                         <img src="{{ $currentUser?->profile_photo
                             ? asset('storage/' . $currentUser->profile_photo)
-                            : asset('images/default-avatar.png') }}"
+                            : asset('img/default.png') }}"
                             alt="Foto Profil" class="rounded-circle me-2 border border-white img-cover" width="32"
                             height="32">
 

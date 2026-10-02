@@ -57,6 +57,77 @@
         });
     </script>
 
+    <script>
+        let previousOrderCount = null;
+
+        function checkNewOrders() {
+            fetch('{{ route('admin.notifications.orders') }}')
+                .then(response => response.json())
+                .then(data => {
+
+                    const badge = document.getElementById('orderNotificationBadge');
+
+                    if (!badge) return;
+
+                    const currentCount = data.count;
+
+                    // Tampilkan / sembunyikan badge
+                    if (currentCount > 0) {
+                        badge.textContent = currentCount > 99 ? '99+' : currentCount;
+                        badge.classList.remove('d-none');
+                    } else {
+                        badge.classList.add('d-none');
+                    }
+
+                    if (previousOrderCount === null) {
+                        previousOrderCount = currentCount;
+                        return;
+                    }
+
+                    if (currentCount > previousOrderCount) {
+
+                        if (Notification.permission === 'granted') {
+                            new Notification('Bloomora', {
+                                body: 'Ada pesanan baru yang masuk!',
+                                icon: '{{ asset('img/logo2.jpeg') }}'
+                            });
+                        }
+
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            icon: 'info',
+                            title: 'Pesanan baru masuk!',
+                            text: 'Ada pesanan baru yang perlu diproses.',
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true
+                        });
+                    }
+
+                    previousOrderCount = currentCount;
+                })
+                .catch(error => {
+                    console.error('Gagal mengecek pesanan:', error);
+                });
+        }
+
+        checkNewOrders();
+
+        setInterval(checkNewOrders, 10000); <
+        script >
+            document.getElementById('orderNotificationLink')?.addEventListener('click', function() {
+                const badge = document.getElementById('orderNotificationBadge');
+
+                if (badge) {
+                    badge.classList.add('d-none');
+                    badge.textContent = '0';
+                }
+
+                previousOrderCount = 0;
+            });
+    </script>
+
     @stack('scripts')
 
     @if (Session::has('success'))

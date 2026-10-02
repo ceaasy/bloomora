@@ -13,6 +13,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ReviewManagementController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -98,5 +99,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/reviewmanagements', [ReviewManagementController::class, 'index'])->name('reviewmanagements.index');
         Route::get('/reviewmanagements/{review}', [ReviewManagementController::class, 'show'])->name('reviewmanagements.show');
         Route::patch('/reviewmanagements/{review}/toggle', [ReviewManagementController::class, 'toggle'])->name('reviewmanagements.toggle');
-    });
+
+        Route::get('/admin/notifications/orders', function () {
+            $count = Order::where('status', 'Diproses')->count();
+
+            return response()->json([
+                'count' => $count,
+            ]);
+        })->name('notifications.orders');
+            });
 });

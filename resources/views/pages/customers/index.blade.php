@@ -27,7 +27,7 @@
                         <tr>
                             <td>{{ $customer->id }}</td>
                             <td>
-                                <img src="{{ $customer->profile_photo ? asset('storage/' . $customer->profile_photo) : asset('images/default-avatar.png') }}"
+                                <img src="{{ $customer->profile_photo ? asset('storage/' . $customer->profile_photo) : asset('img/default.png') }}"
                                     alt="Foto {{ $customer->name }}" width="40" height="40" class="rounded-circle"
                                     style="object-fit: cover;">
                             </td>
